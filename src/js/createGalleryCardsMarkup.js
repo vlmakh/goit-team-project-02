@@ -3,7 +3,7 @@ export function createGalleryCardsMarkup(data) {
     .map(({}) => {
       return `
     <div> 
-      <img src="${qwwe}" alt="${qwee}" loading="lazy"/></a>
+      <img src="${qwwe}" alt="${qwee}" loading="lazy"/>
       <div>
         <p>${qwwe}</p>
         <p>${qwwe}</p>
