@@ -1,0 +1,98 @@
+.header {
+  padding-top: 40px;
+  padding-bottom: 62px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+}
+.header-lib {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/header-lib/header-lib-bg-img@1x_s.jpg);
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/header-lib/header-lib-bg-img@2x_s.jpg);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/header-lib/header-lib-bg-img@1x_m.jpg);
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header-lib/header-lib-bg-img@2x_m.jpg);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/header-lib/header-lib-bg-img@1x_l.jpg);
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header-lib/header-lib-bg-img@2x_l.jpg);
+    }
+  }
+}
+
+.container {
+  // mobile screen
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  // breakpoint 320px for mobile screen
+  @media screen and (min-width: 320px) {
+    width: 320px;
+  }
+
+  // breakpoint 768px for tablet screen
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 768px;
+  }
+
+  // breakpoint 1280px for desktop screen
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
