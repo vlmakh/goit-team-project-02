@@ -1,6 +1,7 @@
 const refs = {
-  form: document.querySelector('#search-form'),
-  gallery: document.querySelector('#gallery-main'),
+  form: document.querySelector('.header-form__search'),
+  formWarning: document.querySelector('.header-form__warning'),
+  gallery: document.querySelector('.gallery-js'),
   library: document.querySelector('#gallery-lib'),
 };
 
