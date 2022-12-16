@@ -1,31 +1,40 @@
-<header class="header header-lib">
-  <div class="container header-container">
-    <a href="./index.html" class="logo link">
-      <!-- <img src="./" alt="Icon logo" /> -->
-      <span class="logo__label">Filmoteka</span>
-    </a>
-  </div>
-  <nav class="header-nav">
-    <ul class="nav-list list">
-      <li class="header-nav__item">
-        <a href="./index.html" class="header-nav__link link">HOME</a>
-      </li>
-      <li class="header-nav__item">
-        <a
-          href="./library.html"
-          class="header-nav__link header-nav__link--current link"
-        >
-          MY LIBRARY</a
-        >
-      </li>
-    </ul>
-  </nav>
-  <div class="header-lib-button">
-    <button type="button" class="header-movie-button" data-id="watched-btn">
-      WATCHED
-    </button>
-    <button type="button" class="header-movie-button" data-id="queue-btn">
-      QUEUE
-    </button>
+<header class="header-lib">
+  <div class="container header-lib__container">
+    <div class="header-lib__flex">
+      <a href="./index.html" class="logo link">
+        <!-- <img src="./" alt="Icon logo" /> -->
+        <svg class="icon-film" width="24" height="24">
+          <use href="./images/icons.svg#icon-film"></use>
+        </svg>
+        <span class="logo__label">Filmoteka</span>
+      </a>
+      <nav class="header-lib__nav">
+        <ul class="header-lib__list list">
+          <li class="header-lib__item">
+            <a href="./index.html" class="header-lib__link link">HOME</a>
+          </li>
+          <li class="header-lib__item">
+            <a
+              href="./library.html"
+              class="header-lib__link header-lib__link--current link"
+            >
+              MY LIBRARY</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-lib-button">
+      <button
+        type="button"
+        class="header-movie-button header-movie-button--active"
+        data-id="watched-btn"
+      >
+        WATCHED
+      </button>
+      <button type="button" class="header-movie-button" data-id="queue-btn">
+        QUEUE
+      </button>
+    </div>
   </div>
 </header>
