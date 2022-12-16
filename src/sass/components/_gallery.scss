@@ -22,7 +22,7 @@
     max-width: 480px;
 
     @media screen and (min-width: 768px) {
-      max-width: 768px;
+      width: 768px;
       padding: 0 32px;
       flex-direction: row;
       flex-wrap: wrap;
