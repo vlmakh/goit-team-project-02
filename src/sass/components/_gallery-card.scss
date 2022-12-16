@@ -1,11 +1,14 @@
 .movie__card {
-  padding: 0;
-  width: 394px;
-
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 6px rgba(200, 200, 200, 0.2);
   transition: box-shadow 200ms linear;
+  @media screen and (min-width: 768px) {
+      width: 336px;
+    }
+         @media screen and (min-width: 1280px) {
+           width: 394px;
+         }
 }
 
 .movie__thumb {
@@ -26,7 +29,11 @@
 }
 
 .movie__info {
-  padding: 12px 0;
+  padding-top: 8px;
+
+  @media screen and (min-width: 1280px) {
+      padding-top: 12px;
+    }
 }
 
 .movie__name {
