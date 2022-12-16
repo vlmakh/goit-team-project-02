@@ -20,6 +20,9 @@
 //***************
 import { createGalleryMarkup } from './create-gallery-markup';
 import refs from './refs';
+import { watched, queue } from './local-storage';
+
+
 // Mykola's buttons
 const watchedRef = document.querySelector('[data-id="watched-btn"]');
 const queueRef = document.querySelector('[data-id="queue-btn"]');
@@ -34,9 +37,10 @@ console.log(refs);
 
 function showWatched() {
   console.log('clik on watched');
-  refs.library.compareDocumentPosition = createGalleryMarkup(watched);
+  //   refs.library.innerHTML = createGalleryMarkup(watched); 
 }
 
 function showQueue() {
-  console.log('clik on queue');
+    console.log('clik on queue');
+    //   refs.library.innerHTML = createGalleryMarkup(queue);
 }
