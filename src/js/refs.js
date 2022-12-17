@@ -5,6 +5,7 @@ const refs = {
   library: document.querySelector('#gallery-lib'),
   divBackdrop: document.querySelector('.js-backdrop'),
   closeModalBtn: document.querySelector('.modal__btn-close'),
+  pagination: document.querySelector('#pagination'),
 };
 
 export default refs;
