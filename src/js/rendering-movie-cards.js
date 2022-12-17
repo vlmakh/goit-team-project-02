@@ -4,8 +4,6 @@ import { createGalleryMarkup } from './create-gallery-markup';
 const galleryMovie = document.querySelector('.gallery-js');
 
 getTrending().then(data => {
-  galleryMovie.insertAdjacentHTML(
-    'beforeend',
-    createGalleryMarkup(data.results)
-  );
+  console.log(data.results);
+  galleryMovie.innerHTML = createGalleryMarkup(data.results);
 });
