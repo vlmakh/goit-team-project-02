@@ -2,11 +2,17 @@
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 6px rgba(200, 200, 200, 0.2);
-  transition: box-shadow 200ms linear;
+  transition: box-shadow 250ms linear, transform 250ms linear;
 
   @media screen and (min-width: 768px) {
+    &:hover,
+    &:focus {
+      transform: scale(1.05);
+    }
+
     width: calc((100% - 32px) / 2);
   }
+
   @media screen and (min-width: 1280px) {
     width: calc((100% - 2 * 16px) / 3);
   }
@@ -15,6 +21,21 @@
 .movie__thumb {
   border-radius: 5px;
   overflow: hidden;
+
+  @media (max-width: 767.98px) {
+    width: 280px;
+    height: 398px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 466px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 574px;
+  }
 }
 
 .movie__image {
