@@ -10,6 +10,8 @@ function onOpenModal(event) {
     return;
   }
 
+  console.log(event.target.dataset.movie);
+
   document.body.classList.add('show-modal', 'modal-open');
   window.addEventListener('keydown', onEscKeyPress);
 }

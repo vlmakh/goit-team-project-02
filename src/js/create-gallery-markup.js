@@ -6,9 +6,9 @@ export function createGalleryMarkup(movies) {
       const genres = genresFormat(movie.genre_ids);
 
       return `
-      <li class="movie__card">
+      <li class="movie__card" >
         <div class="movie__thumb">        
-            <img class="movie__image"
+            <img class="movie__image" data-movie="${movie.id}"
             src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
             alt=${movie.title ?? movie.name}
             loading="lazy"
