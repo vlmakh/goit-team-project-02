@@ -149,6 +149,24 @@ body.modal-open {
     line-height: calc(14 / 12);
     color: #000000;
   }
+  &__list-vote {
+    padding: 1px 9px;
+    background: #ff6b01;
+    border-radius: 5px;
+
+    color: #FFFFFF;
+  }
+  &__list-slesh {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8c8c8c;
+  }
+  &__list-votes{
+    padding: 1px 9px;
+    background: #F7F7F7;
+border-radius: 5px;
+  }
 
   &__subtitle {
     margin-bottom: 8px;
