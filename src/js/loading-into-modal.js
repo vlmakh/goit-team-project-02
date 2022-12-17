@@ -70,10 +70,13 @@ export function loadIntoModal(id) {
 
     const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
     const addQueueRef = document.querySelector('[data-btn=addToQueue]');
-    // if (watched.includes(id)) addWatchedRef.setAttribute('disabled', true);
-    //  if (queue.includes(id)) addQueueRef.setAttribute('disable', true);
-    addWatchedRef.addEventListener('click', onAddToWatched);
-    addQueueRef.addEventListener('click', onAddToQueue);
+
+    addWatchedRef.addEventListener('click', () => {
+      onAddToWatched(id);
+    });
+    addQueueRef.addEventListener('click', () => {
+      onAddToQueue(id);
+    });
   });
 }
 

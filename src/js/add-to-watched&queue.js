@@ -5,10 +5,10 @@ import {
   setQueueLocalStoradge,
 } from './local-storage';
 
-export function onAddToWatched(evt, id) {
+export function onAddToWatched(id) {
   // evt.preventDefault();
 
-  console.log('ddWatchedRef click');
+  console.log('add to watch: ', id);
   if (watched.includes(id)) {
     return;
   }
@@ -18,8 +18,8 @@ export function onAddToWatched(evt, id) {
   // console.log(watched);
 }
 
-export function onAddToQueue(evt, id) {
-  console.log('addQueueRef click');
+export function onAddToQueue(id) {
+  console.log('add to Queue: ', id);
   if (queue.includes(id)) {
     return;
   }

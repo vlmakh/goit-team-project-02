@@ -10,8 +10,8 @@ const queueRef = document.querySelector('[data-id="queue-btn"]');
 watchedRef.addEventListener('click', showWatched);
 queueRef.addEventListener('click', showQueue);
 
-watched.push(112, 132);
-queue.push(112, 132, 27, 112);
+// watched.push(112, 132);
+// queue.push(112, 132, 27, 112);
 function showWatched() {
   console.log('clik on watched');
   getArrayofMovies(watched)
