@@ -108,7 +108,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // position: relative;
+  position: relative;
 }
 
 .header-form__input {
@@ -141,4 +141,26 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.header-form__warning {
+  position: absolute;
+  top: 40px;
+  left: 0;
+
+  display: inline-block;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: $color-link-underline;
+  transition: opacity 500ms $timing-function;
+
+  @media (min-width: 768px) {
+    left: 172px;
+  }
+
+  @media (min-width: 1280px) {
+    left: 400px;
+  }
 }
