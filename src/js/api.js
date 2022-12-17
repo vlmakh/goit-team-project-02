@@ -3,8 +3,8 @@ import axios from 'axios';
 const MAIN_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '7944ae355bdc42ac579681e106149d6b';
 
-export async function getTrending() {
-  const url = `${MAIN_URL}/trending/all/day?api_key=${API_KEY}&language=en-US&page=1`;
+export async function getTrending(page = 1) {
+  const url = `${MAIN_URL}/trending/all/day?api_key=${API_KEY}&language=en-US&page=${page}`;
   return await axios
     .get(url)
     .then(response => {
