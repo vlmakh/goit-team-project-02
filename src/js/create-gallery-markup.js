@@ -5,11 +5,15 @@ export function createGalleryMarkup(movies) {
     .map(movie => {
       const genres = genresFormat(movie.genre_ids);
 
+      const poster = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+        : './images/noposter.jpg';
+
       return `
       <li class="movie__card" >
         <div class="movie__thumb">        
             <img class="movie__image" data-movie="${movie.id}"
-            src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+            src="${poster}"
             alt=${movie.title ?? movie.name}
             loading="lazy"
             />      
