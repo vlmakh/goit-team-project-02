@@ -1,12 +1,11 @@
 import { getInfoMovie } from './api';
 
-// console.log('getVideos', getVideos);
-const modalRef = document.querySelector('.modal__wrap');
-// console.log(modalRef);
+loadIntoModal(12);
 
-const film = getInfoMovie(12).then(data => {
-  console.log(data);
-  let markup = `<img
+function loadIntoModal(id) {
+  const modalRef = document.querySelector('.modal__wrap');
+  const film = getInfoMovie(id).then(data => {
+    const markup = `<img
       class="modal__img"
       src="https://image.tmdb.org/t/p/w500${data.poster_path}"
       alt=""
@@ -33,8 +32,8 @@ const film = getInfoMovie(12).then(data => {
         <ul class="modal__list list">
           <li class="modal__list-item">
             <p class="modal__list-left">${data.vote_average.toFixed(1)} /${
-    data.vote_count
-  }</p>
+      data.vote_count
+    }</p>
           </li>
           <li class="modal__list-item">
             <p class="modal__list-left">${data.popularity.toFixed(1)}</p>
@@ -64,9 +63,10 @@ const film = getInfoMovie(12).then(data => {
         </li>
       </ul>
     </div>`;
-  //   markup = 'jvhnkldjshfvkjs';
-  modalRef.innerHTML = markup;
-});
+
+    modalRef.innerHTML = markup;
+  });
+}
 
 function getGenres(arrOfGenres) {
   return arrOfGenres.map(genr => genr.name).join(', ');
