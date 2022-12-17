@@ -8,7 +8,7 @@ let query;
 
 function onSearchByKeyword(e) {
   e.preventDefault();
-  query = e.target.searchQuery.value;
+  query = e.target.searchQuery.value.trim();
   let page = 1;
   refs.formWarning.textContent = '';
   if (query === '') {
