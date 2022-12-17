@@ -1,6 +1,10 @@
+import { genresFormat } from './genres-format';
+
 export function createGalleryMarkup(movies) {
   return movies
     .map(movie => {
+      const genres = genresFormat(movie.genre_ids);
+
       return `
       <li class="movie__card">
         <div class="movie__thumb">        
@@ -12,9 +16,9 @@ export function createGalleryMarkup(movies) {
         </div>
         <div class="movie__info">
           <p class="movie__name">${movie.title ?? movie.name}</p>
-          <p class="movie__descr">Genres | ${(
-            movie.release_date ?? movie.first_air_date
-          ).slice(0, 4)}</p>
+          <p class="movie__descr">${genres} | ${(
+        movie.release_date ?? movie.first_air_date
+      ).slice(0, 4)}</p>
         </div>
       </li>`;
     })
