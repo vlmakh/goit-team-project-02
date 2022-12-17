@@ -4,36 +4,70 @@ import { getInfoMovie } from './api';
 const modalRef = document.querySelector('.modal__wrap');
 // console.log(modalRef);
 
-const film = getInfoMovie(112).then(data => {
+const film = getInfoMovie(12).then(data => {
   console.log(data);
   let markup = `<img
+      class="modal__img"
       src="https://image.tmdb.org/t/p/w500${data.poster_path}"
       alt=""
       width="240px"
       height="357px"
     />
-    <h2>${data.title}</h2>
-    <ul class="modal__list list">
-      <li>
-        <p><span>Vote / Votes</span>${data.vote_average.toFixed(1)} /${
+    <div>
+      <h2 class="modal__title">${data.title}</h2>
+      <div class="modal__list-box">
+        <ul class="modal__list list">
+          <li class="modal__list-item">
+            <p class="modal__list-rigth">Vote/Votes </p>
+          </li>
+          <li class="modal__list-item">
+            <p class="modal__list-rigth">Popularity</p>
+          </li>
+          <li class="modal__list-item">
+            <p class="modal__list-rigth">Original Title</p>
+          </li>
+          <li class="modal__list-item">
+            <p class="modal__list-rigth">Genre</p>
+          </li>
+        </ul>
+        <ul class="modal__list list">
+          <li class="modal__list-item">
+            <p class="modal__list-left">${data.vote_average.toFixed(1)} /${
     data.vote_count
-  }
-</p>
-      </li>
-      <li>
-        <p><span>Popularity</span>${data.popularity.toFixed(1)}</p>
-      </li>
-      <li>
-        <p><span>Original Title</span>${data.title}</p>
-      </li>
-      <li>
-        <p><span>Genre</span>Janr</p>
-      </li>
-    </ul>
-    <h3>ABOUT</h3>
-    <p>
-      ${data.about ?? '---'}
-    </p>`;
+  }</p>
+          </li>
+          <li class="modal__list-item">
+            <p class="modal__list-left">${data.popularity.toFixed(1)}</p>
+          </li>
+          <li class="modal__list-item">
+            <p class="modal__list-left">${data.title}</p>
+          </li>
+          <li class="modal__list-item">
+            <p class="modal__list-left">${getGenres(data.genres)}</p>
+          </li>
+        </ul>
+      </div>
+      <h3 class="modal__subtitle">ABOUT</h3>
+      <p class="modal__descrpt">
+       ${data.overview ?? '---'}
+      </p>
+      <ul class="modal__btn-list list">
+        <li>
+          <button type="button" class="modal__btn" data-btn="addToWatched">
+            add to Watched
+          </button>
+        </li>
+        <li>
+          <button type="button" class="modal__btn" data-btn="addToQueue">
+            add to queue
+          </button>
+        </li>
+      </ul>
+    </div>`;
   //   markup = 'jvhnkldjshfvkjs';
   modalRef.innerHTML = markup;
 });
+
+function getGenres(arrOfGenres) {
+  return arrOfGenres.map(genr => genr.name).join(', ');
+}
