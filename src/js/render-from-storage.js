@@ -18,7 +18,7 @@ function showWatched() {
     .then(data => {
       console.log(data);
 
-      refs.library.insertAdjacentHTML('beforeend', createLibraryMarkup(data));
+      refs.library.innerHTML = createLibraryMarkup(data);
     })
     .catch(er => console.log(er));
 }
@@ -29,6 +29,6 @@ function showQueue() {
   getArrayofMovies(queue).then(data => {
     console.log(data);
 
-    refs.library.insertAdjacentHTML('beforeend', createLibraryMarkup(data));
+    refs.library.innerHTML = createLibraryMarkup(data);
   });
 }
