@@ -1,4 +1,5 @@
 import { getInfoMovie } from './api';
+import { onAddToWatched, onAddToQueue } from './add-to-watched&queue';
 
 loadIntoModal(12);
 
@@ -65,6 +66,13 @@ function loadIntoModal(id) {
     </div>`;
 
     modalRef.innerHTML = markup;
+
+    const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
+    const addQueueRef = document.querySelector('[data-btn=addToQueue]');
+    // if (watched.includes(id)) addWatchedRef.setAttribute('disabled', true);
+    //  if (queue.includes(id)) addQueueRef.setAttribute('disable', true);
+    addWatchedRef.addEventListener('click', onAddToWatched);
+    addQueueRef.addEventListener('click', onAddToQueue);
   });
 }
 

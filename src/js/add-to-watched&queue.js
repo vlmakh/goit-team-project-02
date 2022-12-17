@@ -1,17 +1,24 @@
-import { watched, queue } from './local-storage';
+import {
+  watched,
+  queue,
+  setWatchedLocalStoradge,
+  setQueueLocalStoradge,
+} from './local-storage';
 
-const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
-const addQueueRef = document.querySelector('[data-btn=addToQueue]');
+export function onAddToWatched(evt, id) {
+  // evt.preventDefault();
 
-addWatchedRef.addEventListener('click', onAddToWatched);
-addQueueRef.addEventListener('click', onAddToQueue);
+  console.log('ddWatchedRef click');
+  if (watched.includes(id)) return;
 
-function onAddToWatched(id) {
-  if (watched.includes(id)) addWatchedRef.setAttribute('disable', true);
-  else watched.push(id);
+  watched.push(id);
+  setWatchedLocalStoradge();
+  console.log(watched);
 }
 
-function onAddToQueue(id) {
-  if (queue.includes(id)) addQueueRef.setAttribute('disable', true);
-  else queue.push(id);
+export function onAddToQueue(evt, id) {
+  console.log('addQueueRef click');
+  if (queue.includes(id)) return;
+  queue.push(id);
+  setQueueLocalStoradge();
 }
