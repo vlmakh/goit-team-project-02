@@ -11,7 +11,7 @@ watchedRef.addEventListener('click', showWatched);
 queueRef.addEventListener('click', showQueue);
 
 watched.push(112, 122);
-queue.push(112, 122, 27, 112, 45, 37);
+queue.push(112, 132, 27, 112);
 function showWatched() {
   console.log('clik on watched');
   getArrayofMovies(watched)
