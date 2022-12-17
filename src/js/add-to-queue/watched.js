@@ -1,7 +1,7 @@
 import { watched, queue } from './local-storage';
 
-const addWatchedRef = document.querySelector('[addToWatched]');
-const addQueueRef = document.querySelector('[addToQueue]');
+const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
+const addQueueRef = document.querySelector('[data-btn=addToQueue]');
 
 addWatchedRef.addEventListener('click', onAddToWatched);
 addQueueRef.addEventListener('click', onAddToQueue);
