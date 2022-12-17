@@ -12,7 +12,9 @@ export function createGalleryMarkup(movies) {
         </div>
         <div class="movie__info">
           <p class="movie__name">${movie.title ?? movie.name}</p>
-          <p class="movie__descr">Genres | YEAR</p>
+          <p class="movie__descr">Genres | ${(
+            movie.release_date ?? movie.first_air_date
+          ).slice(0, 4)}</p>
         </div>
       </li>`;
     })
