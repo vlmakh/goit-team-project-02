@@ -1,12 +1,14 @@
 import refs from './refs';
 import { getByKeyword } from './api';
 import { createGalleryMarkup } from './create-gallery-markup';
+import { createPagination } from './pagination';
 
 refs.form.addEventListener('submit', onSearchByKeyword);
+let query;
 
 function onSearchByKeyword(e) {
   e.preventDefault();
-  const query = e.target.searchQuery.value;
+  query = e.target.searchQuery.value;
   let page = 1;
   refs.formWarning.textContent = '';
   if (query === '') {
@@ -32,6 +34,13 @@ function onSearchByKeyword(e) {
       }
       console.log(data);
       refs.gallery.innerHTML = createGalleryMarkup(data.results);
+
+      const pagination = createPagination(data.total_results, data.total_pages);
+      pagination.on('beforeMove', ({ page }) => {
+        getByKeyword(query, page).then(data => {
+          refs.gallery.innerHTML = createGalleryMarkup(data.results);
+        });
+      });
     })
     .catch(error => console.log(error));
 }
