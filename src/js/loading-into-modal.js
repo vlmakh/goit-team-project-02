@@ -1,9 +1,9 @@
 import { getInfoMovie } from './api';
 import { onAddToWatched, onAddToQueue } from './add-to-watched&queue';
 
-loadIntoModal(12);
+// loadIntoModal(12);
 
-function loadIntoModal(id) {
+export function loadIntoModal(id) {
   const modalRef = document.querySelector('.modal__wrap');
   const film = getInfoMovie(id).then(data => {
     const markup = `<img

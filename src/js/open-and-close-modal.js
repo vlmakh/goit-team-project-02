@@ -1,4 +1,5 @@
 import refs from './refs';
+import { loadIntoModal } from './loading-into-modal';
 
 refs.gallery.addEventListener('click', onOpenModal);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
@@ -11,6 +12,8 @@ function onOpenModal(event) {
   }
 
   console.log(event.target.dataset.movie);
+  const id = event.target.dataset.movie;
+  loadIntoModal(id);
 
   document.body.classList.add('show-modal', 'modal-open');
   window.addEventListener('keydown', onEscKeyPress);

@@ -1,4 +1,4 @@
-import { createGalleryMarkup } from './create-gallery-markup';
+import { createLibraryMarkup } from './create-library-markup';
 import refs from './refs';
 import { watched, queue } from './local-storage';
 import { getArrayofMovies } from './api';
@@ -10,7 +10,7 @@ const queueRef = document.querySelector('[data-id="queue-btn"]');
 watchedRef.addEventListener('click', showWatched);
 queueRef.addEventListener('click', showQueue);
 
-watched.push(112, 122);
+watched.push(112, 132);
 queue.push(112, 132, 27, 112);
 function showWatched() {
   console.log('clik on watched');
@@ -18,7 +18,7 @@ function showWatched() {
     .then(data => {
       console.log(data);
 
-      refs.library.insertAdjacentHTML('beforeend', createGalleryMarkup(data));
+      refs.library.insertAdjacentHTML('beforeend', createLibraryMarkup(data));
     })
     .catch(er => console.log(er));
 }
@@ -29,6 +29,6 @@ function showQueue() {
   getArrayofMovies(queue).then(data => {
     console.log(data);
 
-    refs.library.insertAdjacentHTML('beforeend', createGalleryMarkup(data));
+    refs.library.insertAdjacentHTML('beforeend', createLibraryMarkup(data));
   });
 }
