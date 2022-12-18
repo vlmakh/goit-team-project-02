@@ -13,10 +13,7 @@
 
   background: rgba(94, 99, 99, 0.7);
 
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
 
   opacity: 0;
   visibility: hidden;
@@ -27,6 +24,9 @@ body.show-modal .backdrop {
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.modal-open {
@@ -43,6 +43,7 @@ body.modal-open {
   padding: 0px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
   z-index: 50;
 }
 
@@ -74,7 +75,7 @@ body.modal-open {
     transform: translate(-50%);
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     width: 806px;
     // height: 558px;
     top: 50%;
@@ -100,7 +101,7 @@ body.modal-open {
       margin-bottom: 0;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
       min-width: 375px;
       min-height: 478px;
       margin-right: 16px;
@@ -114,7 +115,7 @@ body.modal-open {
     font-size: 20px;
     line-height: calc(23 / 20);
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
       font-size: 30px;
       line-height: calc(35 / 30);
     }
@@ -125,7 +126,7 @@ body.modal-open {
     display: flex;
     gap: 40px;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
       gap: 83px;
     }
   }
@@ -184,7 +185,7 @@ body.modal-open {
     font-size: 12px;
     line-height: calc(20 / 12);
 
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
       margin-bottom: 36px;
     }
   }
@@ -197,7 +198,7 @@ body.modal-open {
       gap: 15px;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
       margin-left: 24px;
     }
   }
@@ -235,7 +236,7 @@ body.modal-open {
       height: 44px;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
       width: 136px;
       height: 44px;
     }
