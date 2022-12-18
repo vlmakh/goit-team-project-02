@@ -1,6 +1,11 @@
 import { getInfoMovie } from './api';
 import { onAddToWatched, onAddToQueue } from './add-to-watched&queue';
-import { watched, queue } from './local-storage';
+import {
+  watched,
+  queue,
+  setQueueLocalStoradge,
+  setWatchedLocalStoradge,
+} from './local-storage';
 
 // loadIntoModal(12);
 
@@ -91,14 +96,18 @@ export function loadIntoModal(id) {
     addWatchedRef.addEventListener('click', () => {
       if (watched.includes(id)) {
         watched.splice(watched.indexOf(id), 1);
+        setWatchedLocalStoradge(watched);
+
         addWatchedRef.style.backgroundColor = '#ffffff';
       } else onAddToWatched(id);
+      setWatchedLocalStoradge(watched);
       loadIntoModal(id);
     });
 
     addQueueRef.addEventListener('click', () => {
       if (queue.includes(id)) {
         queue.splice(watched.indexOf(id), 1);
+        setQueueLocalStoradge(queue);
         addQueueRef.style.backgroundColor = '#ffffff';
       } else onAddToQueue(id);
       loadIntoModal(id);
