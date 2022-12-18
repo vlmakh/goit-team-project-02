@@ -1,6 +1,7 @@
 import { getTrending } from './api';
 import { createGalleryMarkup } from './create-gallery-markup';
 import { createPagination } from './pagination';
+import { scrollOnTop } from './scroll-on-top';
 import refs from './refs';
 
 const galleryMovie = document.querySelector('.gallery-js');
@@ -15,6 +16,7 @@ getTrending().then(data => {
   pagination.on('beforeMove', ({ page }) => {
     getTrending(page).then(data => {
       refs.gallery.innerHTML = createGalleryMarkup(data.results);
+      scrollOnTop();
     });
   });
 });

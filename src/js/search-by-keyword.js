@@ -2,6 +2,7 @@ import refs from './refs';
 import { getByKeyword } from './api';
 import { createGalleryMarkup } from './create-gallery-markup';
 import { createPagination } from './pagination';
+import { scrollOnTop } from './scroll-on-top';
 
 refs.form.addEventListener('submit', onSearchByKeyword);
 let query;
@@ -39,6 +40,7 @@ function onSearchByKeyword(e) {
       pagination.on('beforeMove', ({ page }) => {
         getByKeyword(query, page).then(data => {
           refs.gallery.innerHTML = createGalleryMarkup(data.results);
+          scrollOnTop();
         });
       });
     })
