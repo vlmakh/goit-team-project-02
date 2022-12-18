@@ -6,6 +6,7 @@ import {
   setQueueLocalStoradge,
   setWatchedLocalStoradge,
 } from './local-storage';
+import noposter from '../images/noposter.jpg';
 
 export function loadIntoModal(id) {
   const modalRef = document.querySelector('.modal__wrap');
@@ -15,9 +16,14 @@ export function loadIntoModal(id) {
       modalRef.innerHTML = 'Sorry, info is unavailable';
       return;
     }
+
+    const poster = data.poster_path
+      ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
+      : noposter;
+
     const markup = `<img
       class="modal__img"
-      src="https://image.tmdb.org/t/p/w500${data.poster_path}"
+      src="${poster}"
       alt=""
       width="240"
       height="357"
