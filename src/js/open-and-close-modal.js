@@ -11,16 +11,15 @@ function onOpenModal(event) {
     return;
   }
 
-  // console.log(event.target.dataset.movie);
   const id = event.target.dataset.movie;
   loadIntoModal(id);
 
-  document.body.classList.add('show-modal', 'modal-open');
+  document.body.classList.add('show-modal');
   window.addEventListener('keydown', onEscKeyPress);
 }
 
 function onCloseModal() {
-  document.body.classList.remove('show-modal', 'modal-open');
+  document.body.classList.remove('show-modal');
 }
 
 function onBackDropClick(event) {

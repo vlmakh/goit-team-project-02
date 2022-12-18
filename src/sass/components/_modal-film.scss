@@ -26,11 +26,10 @@ body.show-modal .backdrop {
   pointer-events: initial;
 
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body.modal-open {
-  height: 100vh;
+body.show-modal {
   overflow-y: hidden;
 }
 
