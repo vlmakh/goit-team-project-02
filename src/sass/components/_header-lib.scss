@@ -1,5 +1,5 @@
 .header-lib {
-  max-width: 1280px;
+  // max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 40px;
@@ -89,7 +89,7 @@
   display: inline-flex;
   align-items: center;
 
-  transition: transform $duration $timing-function;
+  transition: transform $duration ease;
 
   @media screen and (min-width: 768px) {
     gap: 10px;
@@ -146,11 +146,12 @@
 .header-nav__link {
   display: block;
 
-  transition: transform $duration $timing-function;
+  transition: transform $duration ease, box-shadow $duration ease;
 
   &:hover,
   &:focus {
     transform: scale(1.15);
+    box-shadow: inset 5px -15px 30px -10px #a7151a;
   }
 }
 
@@ -196,7 +197,8 @@
   border-radius: 5px;
   cursor: pointer;
 
-  transition: transform $duration $timing-function;
+  transition: transform $duration ease, box-shadow $duration ease,
+    border $duration ease;
 
   font-weight: 500;
   font-size: 12px;
@@ -216,6 +218,8 @@
   &:hover,
   &:focus {
     transform: scale(1.1);
+    box-shadow: inset 5px -15px 30px -10px #a7151a;
+    border: 1px solid #a7151a;
   }
 }
 
