@@ -1,8 +1,6 @@
 export function createLibraryMarkup(movies) {
   return movies
     .map(movie => {
-      //   const genres = genresFormat(movie.genre_ids);
-
       return `
       <li class="movie__card" >
         <div class="movie__thumb">        

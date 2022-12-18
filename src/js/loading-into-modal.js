@@ -7,8 +7,6 @@ import {
   setWatchedLocalStoradge,
 } from './local-storage';
 
-// loadIntoModal(12);
-
 export function loadIntoModal(id) {
   const modalRef = document.querySelector('.modal__wrap');
   const film = getInfoMovie(id).then(data => {
@@ -93,8 +91,6 @@ export function loadIntoModal(id) {
       voteRef.style.color = '#000000';
     }
 
-
-    // console.dir(addWatchedRef);
 
     if (watched.includes(id)) {
       addWatchedRef.textContent = 'Is in watchers';

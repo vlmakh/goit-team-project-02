@@ -3,26 +3,19 @@ import refs from './refs';
 import { watched, queue } from './local-storage';
 import { getArrayofMovies } from './api';
 
-// Mykola's buttons
 const watchedRef = document.querySelector('[data-id="watched-btn"]');
 const queueRef = document.querySelector('[data-id="queue-btn"]');
 
 watchedRef.addEventListener('click', showWatched);
 queueRef.addEventListener('click', showQueue);
 
-// watched.push(112, 132);
-// queue.push(112, 132, 27, 112);
 function showWatched() {
-  // console.log('clik on watched');
-  // console.log('watched', watched, watched.length);
   if (!watched.length) {
     refs.library.innerHTML = `<p>Watched is empty<p>`;
     return;
   }
   getArrayofMovies(watched)
     .then(data => {
-      // console.log(data);
-
       refs.library.innerHTML = createLibraryMarkup(data);
     })
     .catch(er => console.log(er));
@@ -33,14 +26,11 @@ function showWatched() {
 }
 
 function showQueue() {
-  // console.log('clik on queue');
   if (!queue.length) {
     refs.library.innerHTML = `<p>Queue is empty<p>`;
     return;
   }
   getArrayofMovies(queue).then(data => {
-    // console.log(data);
-
     refs.library.innerHTML = createLibraryMarkup(data);
   });
 
