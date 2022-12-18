@@ -1,9 +1,6 @@
 #pagination {
-  margin-top: 0px;
-  margin-bottom: 140px;
-  @media (min-width: 768px) {
-    margin-bottom: 160px;
-  }
+  margin: 0;
+  padding-bottom: 80px;
 
   .tui-first,
   .tui-last {
