@@ -739,6 +739,9 @@ body.modal-open {
 .modal__list-item:not(:last-child) {
   margin-bottom: 8px;
 }
+.modal__list-item:not(:last-child).modal__left {
+  margin-bottom: 10px;
+}
 .modal__list-left {
   font-weight: 500;
   font-size: 12px;
@@ -773,8 +776,7 @@ body.modal-open {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.6666666667;
-
-
+  overflow: auto;
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .modal__descrpt {
