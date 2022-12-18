@@ -4,8 +4,9 @@ import { createPagination } from './pagination';
 import refs from './refs';
 
 const galleryMovie = document.querySelector('.gallery-js');
-
+refs.loader.style.display = 'block';
 getTrending().then(data => {
+  refs.loader.style.display = 'none';
   galleryMovie.insertAdjacentHTML(
     'beforeend',
     createGalleryMarkup(data.results)
