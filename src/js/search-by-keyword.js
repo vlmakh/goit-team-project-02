@@ -12,7 +12,7 @@ function onSearchByKeyword(e) {
   query = e.target.searchQuery.value.trim();
   let page = 1;
   refs.formWarning.textContent = '';
-  if (query === '') {
+  if (!query) {
     setTimeout(() => {
       refs.formWarning.classList.add('is-hidden');
     }, 5000);
@@ -25,7 +25,7 @@ function onSearchByKeyword(e) {
   getByKeyword(query, page)
     .then(data => {
       refs.loader.style.display = 'none';
-      if (data.total_results === 0) {
+      if (!data.total_results) {
         setTimeout(() => {
           refs.formWarning.classList.add('is-hidden');
         }, 5000);
