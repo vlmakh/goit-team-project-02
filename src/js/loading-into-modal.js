@@ -1,5 +1,6 @@
 import { getInfoMovie } from './api';
 import { onAddToWatched, onAddToQueue } from './add-to-watched&queue';
+import { watched, queue } from './local-storage';
 
 // loadIntoModal(12);
 
@@ -42,7 +43,7 @@ export function loadIntoModal(id) {
     }</p>
           </li>
           <li class="modal__list-item">
-            <p class="modal__list-left">${data.popularity.toFixed(1)}</p>
+            <p class="modal__list-left">${data.popularity.toFixed(1)} ?? '-'</p>
           </li>
           <li class="modal__list-item">
             <p class="modal__list-left">${data.title}</p>
@@ -75,11 +76,32 @@ export function loadIntoModal(id) {
     const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
     const addQueueRef = document.querySelector('[data-btn=addToQueue]');
 
+    console.dir(addWatchedRef);
+    if (watched.includes(id)) {
+      addWatchedRef.textContent = 'Is in watchers';
+      addWatchedRef.style.backgroundColor = '#ff6b01';
+      addWatchedRef.style.color = '#ffffff';
+    }
+    if (queue.includes(id)) {
+      addQueueRef.textContent = 'Is in queue';
+      addQueueRef.style.backgroundColor = '#ff6b01';
+      addQueueRef.style.color = '#ffffff';
+    }
+
     addWatchedRef.addEventListener('click', () => {
-      onAddToWatched(id);
+      if (watched.includes(id)) {
+        watched.splice(watched.indexOf(id), 1);
+        addWatchedRef.style.backgroundColor = '#ffffff';
+      } else onAddToWatched(id);
+      loadIntoModal(id);
     });
+
     addQueueRef.addEventListener('click', () => {
-      onAddToQueue(id);
+      if (queue.includes(id)) {
+        queue.splice(watched.indexOf(id), 1);
+        addQueueRef.style.backgroundColor = '#ffffff';
+      } else onAddToQueue(id);
+      loadIntoModal(id);
     });
   });
 }

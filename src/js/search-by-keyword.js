@@ -2,6 +2,7 @@ import refs from './refs';
 import { getByKeyword } from './api';
 import { createGalleryMarkup } from './create-gallery-markup';
 import { createPagination } from './pagination';
+import { scrollOnTop } from './scroll-on-top';
 
 refs.form.addEventListener('submit', onSearchByKeyword);
 let query;
@@ -20,9 +21,10 @@ function onSearchByKeyword(e) {
       'Search query is empty. Enter the correct movie name';
     return;
   }
-
+  refs.loader.style.display = 'block';
   getByKeyword(query, page)
     .then(data => {
+      refs.loader.style.display = 'none';
       if (data.total_results === 0) {
         setTimeout(() => {
           refs.formWarning.classList.add('is-hidden');
@@ -39,6 +41,7 @@ function onSearchByKeyword(e) {
       pagination.on('beforeMove', ({ page }) => {
         getByKeyword(query, page).then(data => {
           refs.gallery.innerHTML = createGalleryMarkup(data.results);
+          scrollOnTop();
         });
       });
     })
