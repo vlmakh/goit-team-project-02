@@ -46,24 +46,24 @@ export function loadIntoModal(id) {
           </li>
         </ul>
         <ul class="modal__list list">
-          <li class="modal__list-item">
+          <li class="modal__list-item modal__left">
             <p class="modal__list-left">
     <span class="modal__list-vote">${data.vote_average.toFixed(1)}</span>
                 <span class="modal__list-slesh">/</span>
                 <span class="modal__list-votes">${data.vote_count}</span>
     </p>
           </li>
-          <li class="modal__list-item">
+          <li class="modal__list-item modal__left">
 
             <p class="modal__list-left">${
               data.popularity.toFixed(1) ?? '-'
             } </p>
 
           </li>
-          <li class="modal__list-item">
+          <li class="modal__list-item modal__left">
             <p class="modal__list-left">${data.title}</p>
           </li>
-          <li class="modal__list-item">
+          <li class="modal__list-item modal__left">
             <p class="modal__list-left">${getGenres(data.genres)}</p>
           </li>
         </ul>
