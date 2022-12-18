@@ -11,6 +11,11 @@ watchedRef.addEventListener('click', showWatched);
 queueRef.addEventListener('click', showQueue);
 
 function showWatched() {
+  if (!watchedRef.classList.contains('header-movie-button--active')) {
+    watchedRef.classList.add('header-movie-button--active');
+    queueRef.classList.remove('header-movie-button--active');
+  }
+
   if (!watched.length) {
     refs.library.innerHTML = `
       <li class="nothing">
@@ -23,13 +28,14 @@ function showWatched() {
       refs.library.innerHTML = createLibraryMarkup(data);
     })
     .catch(er => console.log(er));
-  if (!watchedRef.classList.contains('header-movie-button--active')) {
-    watchedRef.classList.add('header-movie-button--active');
-    queueRef.classList.remove('header-movie-button--active');
-  }
 }
 
 function showQueue() {
+  if (!queueRef.classList.contains('header-movie-button--active')) {
+    queueRef.classList.add('header-movie-button--active');
+    watchedRef.classList.remove('header-movie-button--active');
+  }
+
   if (!queue.length) {
     refs.library.innerHTML = `
       <li class="nothing">
@@ -40,11 +46,6 @@ function showQueue() {
   getArrayofMovies(queue).then(data => {
     refs.library.innerHTML = createLibraryMarkup(data);
   });
-
-  if (!queueRef.classList.contains('header-movie-button--active')) {
-    queueRef.classList.add('header-movie-button--active');
-    watchedRef.classList.remove('header-movie-button--active');
-  }
 }
 
 showWatched();
