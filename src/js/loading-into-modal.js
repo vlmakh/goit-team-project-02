@@ -91,7 +91,6 @@ export function loadIntoModal(id) {
       voteRef.style.color = '#000000';
     }
 
-
     if (watched.includes(id)) {
       addWatchedRef.textContent = 'Is in watchers';
       addWatchedRef.style.backgroundColor = '#ff6b01';
@@ -116,7 +115,7 @@ export function loadIntoModal(id) {
 
     addQueueRef.addEventListener('click', () => {
       if (queue.includes(id)) {
-        queue.splice(watched.indexOf(id), 1);
+        queue.splice(queue.indexOf(id), 1);
         setQueueLocalStoradge(queue);
         addQueueRef.style.backgroundColor = '#ffffff';
       } else onAddToQueue(id);
