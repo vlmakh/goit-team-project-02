@@ -1,11 +1,5 @@
 import { genresFormat } from './genres-format';
 import noposter from '../images/noposter.jpg';
-// const img = new Image();
-// const img = document.createElement('img');
-// img.src = './images/noposter.jpg';
-// img.setAttribute('src', './images/noposter.jpg');
-
-// console.log(img.attributes);
 
 export function createGalleryMarkup(movies) {
   return movies
@@ -14,15 +8,7 @@ export function createGalleryMarkup(movies) {
 
       const poster = movie.poster_path
         ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-        : //'../images/noposter.jpg';
-          noposter;
-      // img;
-
-      // const poster = movie.poster_path
-      //   ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-      //   : // '../images/noposter.jpg';
-      //     // noposter;
-      //     img;
+        : noposter;
 
       return `
       <li class="movie__card" >
