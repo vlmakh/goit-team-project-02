@@ -2,6 +2,7 @@ import { createLibraryMarkup } from './create-library-markup';
 import refs from './refs';
 import { watched, queue } from './local-storage';
 import { getArrayofMovies } from './api';
+import nothing from '../images/nothing.jpg';
 
 const watchedRef = document.querySelector('[data-id="watched-btn"]');
 const queueRef = document.querySelector('[data-id="queue-btn"]');
@@ -11,7 +12,10 @@ queueRef.addEventListener('click', showQueue);
 
 function showWatched() {
   if (!watched.length) {
-    refs.library.innerHTML = `<p>Watched is empty<p>`;
+    refs.library.innerHTML = `
+      <li class="nothing">
+        <img src="${nothing}" alt="There's nothing to see here" />
+      </li>`;
     return;
   }
   getArrayofMovies(watched)
@@ -27,7 +31,10 @@ function showWatched() {
 
 function showQueue() {
   if (!queue.length) {
-    refs.library.innerHTML = `<p>Queue is empty<p>`;
+    refs.library.innerHTML = `
+      <li class="nothing">
+        <img src="${nothing}" alt="There's nothing to see here" />
+      </li>`;
     return;
   }
   getArrayofMovies(queue).then(data => {
