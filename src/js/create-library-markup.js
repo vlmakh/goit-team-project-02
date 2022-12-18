@@ -1,11 +1,16 @@
+import noposter from '../images/noposter.jpg';
+
 export function createLibraryMarkup(movies) {
   return movies
     .map(movie => {
+      const poster = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+        : noposter;
       return `
       <li class="movie__card" >
         <div class="movie__thumb">        
             <img class="movie__image" data-movie="${movie.id}"
-            src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+            src="${poster}"
             alt=${movie.title ?? movie.name}
             loading="lazy"
             />      
