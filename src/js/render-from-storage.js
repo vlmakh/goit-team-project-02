@@ -14,6 +14,11 @@ queueRef.addEventListener('click', showQueue);
 // queue.push(112, 132, 27, 112);
 function showWatched() {
   console.log('clik on watched');
+  console.log('watched', watched, watched.length);
+  if (!watched.length) {
+    refs.library.innerHTML = `<p>Watched is empty<p>`;
+    return;
+  }
   getArrayofMovies(watched)
     .then(data => {
       console.log(data);
@@ -29,7 +34,10 @@ function showWatched() {
 
 function showQueue() {
   console.log('clik on queue');
-
+  if (!queue.length) {
+    refs.library.innerHTML = `<p>Queue is empty<p>`;
+    return;
+  }
   getArrayofMovies(queue).then(data => {
     console.log(data);
 
