@@ -1,15 +1,10 @@
 .movie__card {
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 6px rgba(200, 200, 200, 0.2);
-  transition: box-shadow 250ms linear, transform 250ms linear;
+  box-shadow: 0 0 8px rgba(200, 200, 200, 0.8);
+  transition: box-shadow 250ms linear;
 
   @media screen and (min-width: 768px) {
-    &:hover,
-    &:focus {
-      transform: scale(1.05);
-    }
-
     width: calc((100% - 32px) / 2);
   }
 
@@ -42,6 +37,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 250ms linear;
+
+  @media screen and (min-width: 768px) {
+    .movie__card:hover &,
+    .movie__card:focus & {
+      transform: scale(1.05);
+    }
+  }
 }
 
 .movie__card:focus,
