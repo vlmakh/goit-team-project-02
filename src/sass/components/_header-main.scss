@@ -1,7 +1,7 @@
 .header-main {
   margin: 0 auto;
   padding: 40px 0 44px 0;
-  max-width: 1280px;
+  // max-width: 1280px;
 
   background-repeat: no-repeat;
   background-position: center;
@@ -103,7 +103,7 @@
 
 .header-form__input {
   width: 100%;
-  outline: none;
+  outline: transparent;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
@@ -118,8 +118,8 @@
   &:hover,
   &:focus-within {
     transform: scale(1.1);
-    border-bottom: 3px solid $color-accent;
-    box-shadow: inset 3px -11px 20px -13px $color-accent;
+    border-bottom: 3px solid #a7151a;
+    box-shadow: inset 3px -11px 25px -13px #a7151a;
   }
   &:hover + .header-form__btn {
     transform: scale(1.1);
