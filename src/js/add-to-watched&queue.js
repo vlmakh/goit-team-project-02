@@ -8,7 +8,7 @@ import {
 export function onAddToWatched(id) {
   // evt.preventDefault();
 
-  console.log('add to watch: ', id);
+  // console.log('add to watch: ', id);
   if (watched.includes(id)) {
     return;
   }
@@ -19,7 +19,7 @@ export function onAddToWatched(id) {
 }
 
 export function onAddToQueue(id) {
-  console.log('add to Queue: ', id);
+  // console.log('add to Queue: ', id);
   if (queue.includes(id)) {
     return;
   }

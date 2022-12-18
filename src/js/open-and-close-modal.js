@@ -11,7 +11,7 @@ function onOpenModal(event) {
     return;
   }
 
-  console.log(event.target.dataset.movie);
+  // console.log(event.target.dataset.movie);
   const id = event.target.dataset.movie;
   loadIntoModal(id);
 
