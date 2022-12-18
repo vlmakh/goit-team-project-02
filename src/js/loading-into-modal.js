@@ -7,6 +7,10 @@ export function loadIntoModal(id) {
   const modalRef = document.querySelector('.modal__wrap');
   const film = getInfoMovie(id).then(data => {
     console.log(data);
+    if (!data) {
+      modalRef.innerHTML = 'Sorry, info is unavailable';
+      return;
+    }
     const markup = `<img
       class="modal__img"
       src="https://image.tmdb.org/t/p/w500${data.poster_path}"

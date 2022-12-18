@@ -21,6 +21,10 @@ function showWatched() {
       refs.library.innerHTML = createLibraryMarkup(data);
     })
     .catch(er => console.log(er));
+  if (!watchedRef.classList.contains('header-movie-button--active')) {
+    watchedRef.classList.add('header-movie-button--active');
+    queueRef.classList.remove('header-movie-button--active');
+  }
 }
 
 function showQueue() {
@@ -31,4 +35,9 @@ function showQueue() {
 
     refs.library.innerHTML = createLibraryMarkup(data);
   });
+
+  if (!queueRef.classList.contains('header-movie-button--active')) {
+    queueRef.classList.add('header-movie-button--active');
+    watchedRef.classList.remove('header-movie-button--active');
+  }
 }
