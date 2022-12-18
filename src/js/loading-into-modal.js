@@ -12,7 +12,7 @@ import {
 export function loadIntoModal(id) {
   const modalRef = document.querySelector('.modal__wrap');
   const film = getInfoMovie(id).then(data => {
-    console.log(data);
+    // console.log(data);
     if (!data) {
       modalRef.innerHTML = 'Sorry, info is unavailable';
       return;
@@ -21,8 +21,8 @@ export function loadIntoModal(id) {
       class="modal__img"
       src="https://image.tmdb.org/t/p/w500${data.poster_path}"
       alt=""
-      width="240px"
-      height="357px"
+      width="240"
+      height="357"
     />
     <div>
       <h2 class="modal__title">${data.title}</h2>
@@ -50,9 +50,11 @@ export function loadIntoModal(id) {
     </p>
           </li>
           <li class="modal__list-item">
+
             <p class="modal__list-left">${
               data.popularity.toFixed(1) ?? '-'
             } </p>
+
           </li>
           <li class="modal__list-item">
             <p class="modal__list-left">${data.title}</p>
@@ -91,8 +93,9 @@ export function loadIntoModal(id) {
       voteRef.style.color = '#000000';
     }
 
-    console.dir(addWatchedRef);
-    console.log(typeof data.vote_average);
+
+    // console.dir(addWatchedRef);
+
     if (watched.includes(id)) {
       addWatchedRef.textContent = 'Is in watchers';
       addWatchedRef.style.backgroundColor = '#ff6b01';
