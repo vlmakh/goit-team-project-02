@@ -21,9 +21,10 @@ function onSearchByKeyword(e) {
       'Search query is empty. Enter the correct movie name';
     return;
   }
-
+  refs.loader.style.display = 'block';
   getByKeyword(query, page)
     .then(data => {
+      refs.loader.style.display = 'none';
       if (data.total_results === 0) {
         setTimeout(() => {
           refs.formWarning.classList.add('is-hidden');
