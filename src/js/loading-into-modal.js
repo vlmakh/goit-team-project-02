@@ -43,12 +43,16 @@ export function loadIntoModal(id) {
         </ul>
         <ul class="modal__list list">
           <li class="modal__list-item">
-            <p class="modal__list-left">${data.vote_average.toFixed(1)} /${
-      data.vote_count
-    }</p>
+            <p class="modal__list-left">
+    <span class="modal__list-vote">${data.vote_average.toFixed(1)}</span>
+                <span class="modal__list-slesh">/</span>
+                <span class="modal__list-votes">${data.vote_count}</span>
+    </p>
           </li>
           <li class="modal__list-item">
-            <p class="modal__list-left">${data.popularity.toFixed(1)} ?? '-'</p>
+            <p class="modal__list-left">${
+              data.popularity.toFixed(1) ?? '-'
+            } </p>
           </li>
           <li class="modal__list-item">
             <p class="modal__list-left">${data.title}</p>
@@ -80,8 +84,15 @@ export function loadIntoModal(id) {
 
     const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
     const addQueueRef = document.querySelector('[data-btn=addToQueue]');
+    const voteRef = document.querySelector('.modal__list-vote');
+
+    if (data.vote_average < 6) {
+      voteRef.style.backgroundColor = '#ffffff';
+      voteRef.style.color = '#000000';
+    }
 
     console.dir(addWatchedRef);
+    console.log(typeof data.vote_average);
     if (watched.includes(id)) {
       addWatchedRef.textContent = 'Is in watchers';
       addWatchedRef.style.backgroundColor = '#ff6b01';
