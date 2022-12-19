@@ -10,15 +10,15 @@ import {
 import noposter from '../images/noposter.jpg';
 import { showHideLoader } from './loader';
 
-const modalRef = document.querySelector('.modal__wrap');
-const teamRef = document.querySelector('.team__wrap');
+// const modalRef = document.querySelector('.modal__wrap');
+// const teamRef = document.querySelector('.team__wrap');
 
 export function loadIntoModal(id) {
   showHideLoader(refs.loaderModal);
   const film = getInfoMovie(id).then(data => {
     showHideLoader(refs.loaderModal);
     if (!data) {
-      modalRef.innerHTML =
+      refs.modalRef.innerHTML =
         '<div class="modal__empty">Sorry, info is unavailable</div>';
       return;
     }
@@ -92,8 +92,8 @@ export function loadIntoModal(id) {
       </ul>
     </div>`;
 
-    modalRef.innerHTML = markup;
-    teamRef.innerHTML = '';
+    refs.modalRef.innerHTML = markup;
+    refs.teamRef.innerHTML = '';
 
     const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
     const addQueueRef = document.querySelector('[data-btn=addToQueue]');
@@ -119,9 +119,10 @@ export function loadIntoModal(id) {
       if (watched.includes(id)) {
         watched.splice(watched.indexOf(id), 1);
         setWatchedLocalStoradge(watched);
-
         addWatchedRef.style.backgroundColor = '#ffffff';
-      } else onAddToWatched(id);
+      } else {
+        onAddToWatched(id);
+      }
       setWatchedLocalStoradge(watched);
       loadIntoModal(id);
     });
@@ -131,7 +132,9 @@ export function loadIntoModal(id) {
         queue.splice(queue.indexOf(id), 1);
         setQueueLocalStoradge(queue);
         addQueueRef.style.backgroundColor = '#ffffff';
-      } else onAddToQueue(id);
+      } else {
+        onAddToQueue(id);
+      }
       loadIntoModal(id);
     });
   });
