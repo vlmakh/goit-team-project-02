@@ -13,7 +13,9 @@ queueRef.addEventListener('click', showQueue);
 function showWatched() {
   if (!watchedRef.classList.contains('header-movie-button--active')) {
     watchedRef.classList.add('header-movie-button--active');
+    watchedRef.disabled = true;
     queueRef.classList.remove('header-movie-button--active');
+    queueRef.disabled = false;
   }
 
   if (!watched.length) {
@@ -33,7 +35,9 @@ function showWatched() {
 function showQueue() {
   if (!queueRef.classList.contains('header-movie-button--active')) {
     queueRef.classList.add('header-movie-button--active');
+    queueRef.disabled = true;
     watchedRef.classList.remove('header-movie-button--active');
+    watchedRef.disabled = false;
   }
 
   if (!queue.length) {
