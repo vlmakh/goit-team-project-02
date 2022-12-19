@@ -17,7 +17,7 @@ function loadIntoTeamModal(list) {
         </div>
         <div class="member__info">
           <p class="member__name">${member.name}</p>
-          <a class="member__link" href="${member.github}">github</a>
+          <a class="member__link member__link-git" href="${member.github}">github</a>
           <a class="member__link" href="${member.linkedin}">linkedin</a>
           <p class="member__role">${member.role ?? ''}</p>
         </div>
