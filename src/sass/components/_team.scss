@@ -2,7 +2,9 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
+
 }
 
 .member__thumb {
@@ -10,7 +12,8 @@
 
 }
 
-.member__image {
+.member__info {
+    margin-top: 8px;
 
 }
 
