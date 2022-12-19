@@ -6,13 +6,10 @@ refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.divBackdrop.addEventListener('click', onBackDropClick);
 
 function onOpenModal(event) {
-  const isImageEl = event.target.classList.contains('movie__image');
-  if (!isImageEl) {
-    return;
-  }
+  const getParentalEl = event.target.closest('.movie__card');
+  const movieId = getParentalEl.dataset.movie;
 
-  const id = event.target.dataset.movie;
-  loadIntoModal(id);
+  loadIntoModal(movieId);
 
   document.body.classList.add('show-modal');
   window.addEventListener('keydown', onEscKeyPress);

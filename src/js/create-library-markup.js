@@ -11,9 +11,9 @@ export function createLibraryMarkup(movies) {
       const genres = genresLibraryFormat(movie.genres);
 
       return `
-      <li class="movie__card" >
+      <li class="movie__card" data-movie="${movie.id}">
         <div class="movie__thumb">        
-            <img class="movie__image" data-movie="${movie.id}"
+            <img class="movie__image"
             src="${poster}"
             alt=${movie.title ?? movie.name}
             loading="lazy"
