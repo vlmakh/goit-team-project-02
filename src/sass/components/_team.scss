@@ -2,10 +2,32 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    gap: 16px;
 }
 
 .member__thumb {
-    width: 100px;
+    width: 120px;
 
 }
 
+.member__image {
+
+}
+
+.member__info {
+
+}
+
+.member__role {
+    font-size: 12px;
+}
+
+.member__name {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.member__link {
+    @extend .link;
+    font-size: 12px;
+}
