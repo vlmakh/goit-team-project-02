@@ -7,6 +7,10 @@ refs.divBackdrop.addEventListener('click', onBackDropClick);
 
 function onOpenModal(event) {
   const getParentalEl = event.target.closest('.movie__card');
+  if (!getParentalEl) {
+    return;
+  }
+
   const movieId = getParentalEl.dataset.movie;
 
   loadIntoModal(movieId);
