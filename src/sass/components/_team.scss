@@ -1,6 +1,11 @@
-.team_wrap {
+.team__wrap {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+}
+
+.member__thumb {
+    width: 100px;
+
 }
 
