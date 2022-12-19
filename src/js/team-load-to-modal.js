@@ -1,6 +1,6 @@
 import { teamList } from './team';
 
-const footerLink = document.querySelector('.footer__link');
+const footerLink = document.querySelector('.footer');
 const modalRef = document.querySelector('.modal__wrap');
 const teamRef = document.querySelector('.team__wrap');
 
@@ -20,8 +20,8 @@ function loadIntoTeamModal(list) {
         </div>
         <div class="member__info">
           <p class="member__name">${member.name}</p>
-          <p class="member__link">${member.github}</p>
-          <p class="member__link">${member.linkedin ?? '-'} </p>
+          <a class="member__link" href="${member.github}>github</a>
+          <a class="member__link" href="${member.linkedin}>linkedin</a>
           <p class="member__role">${member.role ?? ''}</p>
         </div>
       </li>`;
@@ -33,7 +33,6 @@ function loadIntoTeamModal(list) {
 }
 
 function onOpenModal(e) {
-  console.log(e.currentTarget);
   document.body.classList.add('show-modal');
   window.addEventListener('keydown', onEscKeyPress);
   loadIntoTeamModal(teamList);
