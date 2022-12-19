@@ -141,6 +141,9 @@ body.modal-open {
   &__list-item:not(:last-child) {
     margin-bottom: 8px;
   }
+  &__list-item:not(:last-child).modal__left {
+    margin-bottom: 10px;
+  }
 
   &__list-left {
     font-weight: 500;
@@ -184,6 +187,7 @@ body.modal-open {
     font-weight: 500;
     font-size: 12px;
     line-height: calc(20 / 12);
+    overflow: auto;
 
     @media screen and (min-width: 768px) and (max-width: 1279px) {
       margin-bottom: 36px;
