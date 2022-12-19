@@ -61,6 +61,7 @@ body.show-modal {
   background-color: #ffffff;
   text-align: left;
 
+  min-height: 200px;
   min-width: 280px;
   // height: 940px;
 
@@ -244,4 +245,10 @@ body.show-modal {
       height: 44px;
     }
   }
+}
+
+.modal__empty {
+  margin: 50px auto;
+  font-size: 18px;
+  font-weight: 500;
 }
