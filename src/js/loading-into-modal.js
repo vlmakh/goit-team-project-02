@@ -10,8 +10,10 @@ import {
 import noposter from '../images/noposter.jpg';
 import { showHideLoader } from './loader';
 
-// const modalRef = document.querySelector('.modal__wrap');
-// const teamRef = document.querySelector('.team__wrap');
+import { watched, queue } from './local-storage';
+import refs from './refs';
+import { getArrayofMovies } from './api';
+import { createLibraryMarkup } from './create-library-markup';
 
 export function loadIntoModal(id) {
   showHideLoader(refs.loaderModal);
@@ -120,6 +122,14 @@ export function loadIntoModal(id) {
         watched.splice(watched.indexOf(id), 1);
         setWatchedLocalStoradge(watched);
         addWatchedRef.style.backgroundColor = '#ffffff';
+
+        getArrayofMovies(watched)
+          .then(data => {
+            if (refs.library) {
+              refs.library.innerHTML = createLibraryMarkup(data);
+            }
+          })
+          .catch(er => console.log(er));
       } else {
         onAddToWatched(id);
         setWatchedLocalStoradge(watched);
@@ -134,6 +144,12 @@ export function loadIntoModal(id) {
         queue.splice(queue.indexOf(id), 1);
         setQueueLocalStoradge(queue);
         addQueueRef.style.backgroundColor = '#ffffff';
+
+        getArrayofMovies(queue).then(data => {
+          if (refs.library) {
+            refs.library.innerHTML = createLibraryMarkup(data);
+          }
+        });
       } else {
         onAddToQueue(id);
         setQueueLocalStoradge(queue);

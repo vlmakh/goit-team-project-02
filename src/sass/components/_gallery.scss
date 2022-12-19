@@ -16,6 +16,8 @@
 .gallery__container {
   @extend .container;
 
+  min-height: 420px;
+
   list-style: none;
   display: flex;
   flex-direction: column;
