@@ -122,8 +122,10 @@ export function loadIntoModal(id) {
         addWatchedRef.style.backgroundColor = '#ffffff';
       } else {
         onAddToWatched(id);
+        setWatchedLocalStoradge(watched);
       }
-      setWatchedLocalStoradge(watched);
+
+      refs.modalRef.innerHTML = '';
       loadIntoModal(id);
     });
 
@@ -134,7 +136,10 @@ export function loadIntoModal(id) {
         addQueueRef.style.backgroundColor = '#ffffff';
       } else {
         onAddToQueue(id);
+        setQueueLocalStoradge(queue);
       }
+
+      refs.modalRef.innerHTML = '';
       loadIntoModal(id);
     });
   });
