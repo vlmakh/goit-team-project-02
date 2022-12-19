@@ -8,8 +8,10 @@ import {
 } from './local-storage';
 import noposter from '../images/noposter.jpg';
 
+const modalRef = document.querySelector('.modal__wrap');
+const teamRef = document.querySelector('.team__wrap');
+
 export function loadIntoModal(id) {
-  const modalRef = document.querySelector('.modal__wrap');
   const film = getInfoMovie(id).then(data => {
     // console.log(data);
     if (!data) {
@@ -87,6 +89,7 @@ export function loadIntoModal(id) {
     </div>`;
 
     modalRef.innerHTML = markup;
+    teamRef.innerHTML = '';
 
     const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
     const addQueueRef = document.querySelector('[data-btn=addToQueue]');

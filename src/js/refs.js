@@ -7,6 +7,9 @@ const refs = {
   closeModalBtn: document.querySelector('.modal__btn-close'),
   pagination: document.querySelector('#pagination'),
   loader: document.querySelector('.loader'),
+  footerLink: document.querySelector('.footer__link'),
+  modalRef: document.querySelector('.modal__wrap'),
+  teamRef: document.querySelector('.team__wrap'),
 };
 
 export default refs;

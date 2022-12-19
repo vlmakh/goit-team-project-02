@@ -1,0 +1,32 @@
+.team__wrap {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+
+}
+
+.member__thumb {
+    width: 120px;
+
+}
+
+.member__info {
+    margin-top: 8px;
+
+}
+
+.member__role {
+    font-size: 12px;
+}
+
+.member__name {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.member__link {
+    @extend .link;
+    font-size: 12px;
+}
