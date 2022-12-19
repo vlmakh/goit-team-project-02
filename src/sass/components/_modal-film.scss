@@ -64,6 +64,7 @@ body.show-modal {
   background-color: #ffffff;
   text-align: left;
 
+  min-height: 200px;
   min-width: 280px;
 
   @media screen and (min-width: 768px) {
@@ -247,6 +248,7 @@ body.show-modal {
   }
 }
 
+
 body.show-modal .modal {
   transform: translateX(-50%) scale(1);
   opacity: 1;
@@ -263,4 +265,10 @@ body.show-modal .modal {
   transition: transform 500ms $timing-function $duration,
     opacity 500ms $timing-function $duration,
     visibility 500ms $timing-function $duration;
+
+.modal__empty {
+  margin: 50px auto;
+  font-size: 18px;
+  font-weight: 500;
+
 }

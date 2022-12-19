@@ -1,4 +1,5 @@
 import { getInfoMovie } from './api';
+import refs from './refs';
 import { onAddToWatched, onAddToQueue } from './add-to-watched&queue';
 import {
   watched,
@@ -7,15 +8,18 @@ import {
   setWatchedLocalStoradge,
 } from './local-storage';
 import noposter from '../images/noposter.jpg';
+import { showHideLoader } from './loader';
 
 const modalRef = document.querySelector('.modal__wrap');
 const teamRef = document.querySelector('.team__wrap');
 
 export function loadIntoModal(id) {
+  showHideLoader(refs.loaderModal);
   const film = getInfoMovie(id).then(data => {
-    // console.log(data);
+    showHideLoader(refs.loaderModal);
     if (!data) {
-      modalRef.innerHTML = 'Sorry, info is unavailable';
+      modalRef.innerHTML =
+        '<div class="modal__empty">Sorry, info is unavailable</div>';
       return;
     }
 
