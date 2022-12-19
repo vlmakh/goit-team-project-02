@@ -21,7 +21,9 @@ function onOpenModal(event) {
 
 function onCloseModal() {
   document.body.classList.remove('show-modal');
+
   refs.modalRef.innerHTML = '';
+  refs.teamRef.innerHTML = '';
 }
 
 function onBackDropClick(event) {

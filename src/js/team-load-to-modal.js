@@ -37,6 +37,7 @@ function onOpenModal(e) {
 
 function onCloseModal() {
   document.body.classList.remove('show-modal');
+  refs.teamRef.innerHTML = '';
 }
 
 function onBackDropClick(event) {
