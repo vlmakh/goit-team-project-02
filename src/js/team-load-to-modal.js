@@ -1,6 +1,7 @@
 import { teamList } from './team';
 
 const footerLink = document.querySelector('.footer');
+const modalRef = document.querySelector('.modal__wrap');
 const teamRef = document.querySelector('.team__wrap');
 
 footerLink.addEventListener('click', onOpenModal);
@@ -25,6 +26,7 @@ function loadIntoTeamModal(list) {
     })
     .join('');
 
+  modalRef.innerHTML = '';
   teamRef.innerHTML = markup;
 }
 
