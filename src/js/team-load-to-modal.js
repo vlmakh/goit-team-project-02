@@ -1,10 +1,7 @@
 import { teamList } from './team';
+import refs from './refs';
 
-const footerLink = document.querySelector('.footer');
-const modalRef = document.querySelector('.modal__wrap');
-const teamRef = document.querySelector('.team__wrap');
-
-footerLink.addEventListener('click', onOpenModal);
+refs.footerLink.addEventListener('click', onOpenModal);
 
 function loadIntoTeamModal(list) {
   const markup = list
@@ -28,8 +25,8 @@ function loadIntoTeamModal(list) {
     })
     .join('');
 
-  modalRef.innerHTML = '';
-  teamRef.innerHTML = markup;
+  refs.modalRef.innerHTML = '';
+  refs.teamRef.innerHTML = markup;
 }
 
 function onOpenModal(e) {

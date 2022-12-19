@@ -68,8 +68,8 @@ export const teamList = [
     photo: 'https://avatars.githubusercontent.com/u/106885955?v=4',
   },
   {
-    name: 'Vlad Makhnenko',
-    github: 'https://github.com/vlmakh',
+    name: 'Denis Borysiuk',
+    github: 'https://github.com/DenysBorysiuk',
     linkedin: 'https://linkedin.com',
     photo: 'https://avatars.githubusercontent.com/u/106885955?v=4',
   },
