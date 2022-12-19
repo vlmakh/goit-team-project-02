@@ -2,14 +2,14 @@ import { genresList } from './genres-list';
 
 export function genresGalleryFormat(array) {
   const genreResult = genresList.reduce((acc, element) => {
-    if (array.includes(element.id)) {
+    if (Array.isArray(array) && array.includes(element.id)) {
       acc.push(element.name);
     }
     return acc;
   }, []);
 
   if (!genreResult.length) {
-    return 'unknown genre';
+    return 'Unknown genre';
   } else if (genreResult.length > 2) {
     return `${genreResult[0]}, ${genreResult[1]}...`;
   } else {
@@ -21,7 +21,7 @@ export function genresLibraryFormat(array) {
   const genreResult = array.map(genre => genre.name);
 
   if (!genreResult.length) {
-    return 'unknown genre';
+    return 'Unknown genre';
   } else if (genreResult.length > 2) {
     return `${genreResult[0]}, ${genreResult[1]}...`;
   } else {

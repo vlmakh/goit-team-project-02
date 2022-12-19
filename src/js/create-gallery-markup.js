@@ -5,6 +5,8 @@ export function createGalleryMarkup(movies) {
   return movies
     .map(movie => {
       const genres = genresGalleryFormat(movie.genre_ids);
+      const movieDate = movie.release_date ?? movie.first_air_date ?? null;
+      const movieYear = movieDate ? movieDate.slice(0, 4) : 'Unknown year';
 
       const poster = movie.poster_path
         ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -21,9 +23,7 @@ export function createGalleryMarkup(movies) {
         </div>
         <div class="movie__info">
           <p class="movie__name">${movie.title ?? movie.name}</p>
-          <p class="movie__descr">${genres} | ${(
-        movie.release_date ?? movie.first_air_date
-      ).slice(0, 4)}</p>
+          <p class="movie__descr">${genres} | ${movieYear}</p>
         </div>
       </li>`;
     })
