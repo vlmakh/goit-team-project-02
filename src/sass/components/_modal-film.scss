@@ -25,8 +25,8 @@ body.show-modal .backdrop {
   visibility: visible;
   pointer-events: initial;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity $duration $timing-function,
+    visibility $duration $timing-function;
 }
 
 body.show-modal {
@@ -50,7 +50,10 @@ body.show-modal {
   position: absolute;
   top: 20px;
   left: 50%;
-  transform: translateX(-50%);
+
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  visibility: hidden;
 
   padding: 20px;
   padding-top: 48px;
@@ -63,24 +66,22 @@ body.show-modal {
 
   min-height: 200px;
   min-width: 280px;
-  // height: 940px;
 
   @media screen and (min-width: 768px) {
     padding: 36px;
     padding-top: 40px;
     padding-right: 72px;
     width: 704px;
-    // height: 552px;
+
     top: 219px;
-    transform: translate(-50%);
+    transform: translate(-50%) scale(0.8);
   }
 
   @media screen and (min-width: 1280px) {
     min-width: 806px;
-    // height: 558px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.8);
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -247,8 +248,27 @@ body.show-modal {
   }
 }
 
+
+body.show-modal .modal {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+
+  @media screen and (min-width: 768px) {
+    transform: translate(-50%) scale(1);
+  }
+
+  @media screen and (min-width: 1280px) {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  transition: transform 500ms $timing-function $duration,
+    opacity 500ms $timing-function $duration,
+    visibility 500ms $timing-function $duration;
+
 .modal__empty {
   margin: 50px auto;
   font-size: 18px;
   font-weight: 500;
+}
 }
