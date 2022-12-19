@@ -1,10 +1,10 @@
-import { genresFormat } from './genres-format';
+import { genresGalleryFormat } from './genres-format';
 import noposter from '../images/noposter.jpg';
 
 export function createGalleryMarkup(movies) {
   return movies
     .map(movie => {
-      const genres = genresFormat(movie.genre_ids);
+      const genres = genresGalleryFormat(movie.genre_ids);
 
       const poster = movie.poster_path
         ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
