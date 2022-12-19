@@ -1,4 +1,4 @@
-import { getInfoMovie } from './api';
+import { getInfoMovie, getVideos } from './api';
 import refs from './refs';
 import { onAddToWatched, onAddToQueue } from './add-to-watched&queue';
 import {
@@ -9,23 +9,41 @@ import {
 } from './local-storage';
 import noposter from '../images/noposter.jpg';
 import { showHideLoader } from './loader';
-
-import { watched, queue } from './local-storage';
-import refs from './refs';
 import { getArrayofMovies } from './api';
 import { createLibraryMarkup } from './create-library-markup';
+
+let keyTrailer = '';
 
 export function loadIntoModal(id) {
   showHideLoader(refs.loaderModal);
   const film = getInfoMovie(id).then(data => {
     showHideLoader(refs.loaderModal);
+    console.log(data);
 
-    refresh(data, id);
+    getVideos(id)
+      .then(movies => {
+        console.log(movies);
+        for (const movie of movies) {
+          if (movie.name.includes('Trailer')) {
+            keyTrailer = movie.key;
+            console.log(movie);
+            console.log(keyTrailer);
+          }
+        }
+        refresh(data, id, keyTrailer);
+      })
+      .catch(error => {
+        console.log(error);
+        refresh(data, id);
+      });
   });
 }
 
-function refresh(data, id) {
-  createFilmCardMarkup(data);
+function refresh(data, id, keyTrailer = '') {
+  if (!createFilmCardMarkup(data)) {
+    return;
+  }
+  // createFilmCardMarkup(data);
 
   const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
   const addQueueRef = document.querySelector('[data-btn=addToQueue]');
@@ -60,7 +78,7 @@ function refresh(data, id) {
     }
 
     refs.modalRef.innerHTML = '';
-    refresh(data, id);
+    refresh(data, id, keyTrailer);
   });
 
   addQueueRef.addEventListener('click', () => {
@@ -80,14 +98,16 @@ function refresh(data, id) {
     }
 
     refs.modalRef.innerHTML = '';
-    refresh(data, id);
+    refresh(data, id, keyTrailer);
   });
 }
 
 function createFilmCardMarkup(data) {
+  let status = true;
   if (!data) {
     refs.modalRef.innerHTML =
       '<div class="modal__empty">Sorry, info is unavailable</div>';
+    status = false;
     return;
   }
 
@@ -146,6 +166,11 @@ function createFilmCardMarkup(data) {
       <p class="modal__descrpt">
        ${data.overview ?? '---'}
       </p>
+        <div class="modal__trailer">
+        <button type="button" class="modal__btn-trailer" data-btn="watchTrailer" hidden>
+          Watch Trailer
+        </button>
+      </div>
       <ul class="modal__btn-list list">
         <li>
           <button type="button" class="modal__btn" data-btn="addToWatched">
@@ -168,6 +193,8 @@ function createFilmCardMarkup(data) {
     voteRef.style.backgroundColor = '#ffffff';
     voteRef.style.color = '#000000';
   }
+
+  return status;
 }
 
 function getGenres(arrOfGenres) {

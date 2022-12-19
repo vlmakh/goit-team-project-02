@@ -38,7 +38,7 @@ export async function getVideos(movie_id) {
   return await axios
     .get(url)
     .then(response => {
-      return response.data;
+      return response.data.results;
     })
     .catch(error => console.log(error));
 }
