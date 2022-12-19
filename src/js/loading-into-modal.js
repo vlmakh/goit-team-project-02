@@ -19,17 +19,83 @@ export function loadIntoModal(id) {
   showHideLoader(refs.loaderModal);
   const film = getInfoMovie(id).then(data => {
     showHideLoader(refs.loaderModal);
-    if (!data) {
-      refs.modalRef.innerHTML =
-        '<div class="modal__empty">Sorry, info is unavailable</div>';
-      return;
+
+    refresh(data, id);
+  });
+}
+
+function refresh(data, id) {
+  createFilmCardMarkup(data);
+
+  const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
+  const addQueueRef = document.querySelector('[data-btn=addToQueue]');
+
+  if (watched.includes(id)) {
+    addWatchedRef.textContent = 'Is in watchers';
+    addWatchedRef.style.backgroundColor = '#ff6b01';
+    addWatchedRef.style.color = '#ffffff';
+  }
+  if (queue.includes(id)) {
+    addQueueRef.textContent = 'Is in queue';
+    addQueueRef.style.backgroundColor = '#ff6b01';
+    addQueueRef.style.color = '#ffffff';
+  }
+
+  addWatchedRef.addEventListener('click', () => {
+    if (watched.includes(id)) {
+      watched.splice(watched.indexOf(id), 1);
+      setWatchedLocalStoradge(watched);
+      addWatchedRef.style.backgroundColor = '#ffffff';
+
+      getArrayofMovies(watched)
+        .then(data => {
+          if (refs.library) {
+            refs.library.innerHTML = createLibraryMarkup(data);
+          }
+        })
+        .catch(er => console.log(er));
+    } else {
+      onAddToWatched(id);
+      setWatchedLocalStoradge(watched);
     }
 
-    const poster = data.poster_path
-      ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
-      : noposter;
+    refs.modalRef.innerHTML = '';
+    refresh(data, id);
+  });
 
-    const markup = `<img
+  addQueueRef.addEventListener('click', () => {
+    if (queue.includes(id)) {
+      queue.splice(queue.indexOf(id), 1);
+      setQueueLocalStoradge(queue);
+      addQueueRef.style.backgroundColor = '#ffffff';
+
+      getArrayofMovies(queue).then(data => {
+        if (refs.library) {
+          refs.library.innerHTML = createLibraryMarkup(data);
+        }
+      });
+    } else {
+      onAddToQueue(id);
+      setQueueLocalStoradge(queue);
+    }
+
+    refs.modalRef.innerHTML = '';
+    refresh(data, id);
+  });
+}
+
+function createFilmCardMarkup(data) {
+  if (!data) {
+    refs.modalRef.innerHTML =
+      '<div class="modal__empty">Sorry, info is unavailable</div>';
+    return;
+  }
+
+  const poster = data.poster_path
+    ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
+    : noposter;
+
+  const markup = `<img
       class="modal__img"
       src="${poster}"
       alt=""
@@ -94,71 +160,14 @@ export function loadIntoModal(id) {
       </ul>
     </div>`;
 
-    refs.modalRef.innerHTML = markup;
-    refs.teamRef.innerHTML = '';
+  refs.modalRef.innerHTML = markup;
+  refs.teamRef.innerHTML = '';
+  const voteRef = document.querySelector('.modal__list-vote');
 
-    const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
-    const addQueueRef = document.querySelector('[data-btn=addToQueue]');
-    const voteRef = document.querySelector('.modal__list-vote');
-
-    if (data.vote_average < 6) {
-      voteRef.style.backgroundColor = '#ffffff';
-      voteRef.style.color = '#000000';
-    }
-
-    if (watched.includes(id)) {
-      addWatchedRef.textContent = 'Is in watchers';
-      addWatchedRef.style.backgroundColor = '#ff6b01';
-      addWatchedRef.style.color = '#ffffff';
-    }
-    if (queue.includes(id)) {
-      addQueueRef.textContent = 'Is in queue';
-      addQueueRef.style.backgroundColor = '#ff6b01';
-      addQueueRef.style.color = '#ffffff';
-    }
-
-    addWatchedRef.addEventListener('click', () => {
-      if (watched.includes(id)) {
-        watched.splice(watched.indexOf(id), 1);
-        setWatchedLocalStoradge(watched);
-        addWatchedRef.style.backgroundColor = '#ffffff';
-
-        getArrayofMovies(watched)
-          .then(data => {
-            if (refs.library) {
-              refs.library.innerHTML = createLibraryMarkup(data);
-            }
-          })
-          .catch(er => console.log(er));
-      } else {
-        onAddToWatched(id);
-        setWatchedLocalStoradge(watched);
-      }
-
-      refs.modalRef.innerHTML = '';
-      loadIntoModal(id);
-    });
-
-    addQueueRef.addEventListener('click', () => {
-      if (queue.includes(id)) {
-        queue.splice(queue.indexOf(id), 1);
-        setQueueLocalStoradge(queue);
-        addQueueRef.style.backgroundColor = '#ffffff';
-
-        getArrayofMovies(queue).then(data => {
-          if (refs.library) {
-            refs.library.innerHTML = createLibraryMarkup(data);
-          }
-        });
-      } else {
-        onAddToQueue(id);
-        setQueueLocalStoradge(queue);
-      }
-
-      refs.modalRef.innerHTML = '';
-      loadIntoModal(id);
-    });
-  });
+  if (data.vote_average < 6) {
+    voteRef.style.backgroundColor = '#ffffff';
+    voteRef.style.color = '#000000';
+  }
 }
 
 function getGenres(arrOfGenres) {
