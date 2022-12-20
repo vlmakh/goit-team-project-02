@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
-    <title>Group-8 Filmoteka</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <link
-      rel="stylesheet"
-      href="../node_modules/basiclightbox/dist/basicLightbox.min.css"
-    />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+  <title>Group-8 Filmoteka</title>
+  <link rel="stylesheet" href="./sass/index.scss" />
+  <link rel="stylesheet" href="../node_modules/basiclightbox/dist/basicLightbox.min.css" />
+</head>
+
+<body>
+  <main class="main">
     <!-- Header -->
     <include src="./partials/_header-main.html"></include>
 
     <!-- Gallery  -->
     <include src="./partials/gallery.html"></include>
 
-    <!-- Paginaton -->
-    <include src="./partials/pagination.html"></include>
-
     <!-- Modal form  -->
     <include src="./partials/modal-film.html"></include>
+  </main>
 
-    <!-- Footer -->
-    <include src="./partials/footer.html"></include>
+  <!-- Paginaton -->
+  <include src="./partials/pagination.html"></include>
+  <!-- Footer -->
+  <include src="./partials/footer.html"></include>
 
-    <script type="module" src="./index.js"></script>
-  </body>
+  <script type="module" src="./index.js"></script>
+</body>
+
 </html>

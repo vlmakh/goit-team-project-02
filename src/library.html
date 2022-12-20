@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
-    <title>Group-8 Filmoteka</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <!-- <script type="module" src="./index.js"></script> -->
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+  <title>Group-8 Filmoteka</title>
+  <link rel="stylesheet" href="./sass/index.scss" />
+  <!-- <script type="module" src="./index.js"></script> -->
+</head>
+
+<body>
+  <main class="main">
     <!-- Header -->
     <include src="./partials/_header-lib.html"></include>
 
@@ -17,10 +20,13 @@
 
     <!-- Modal form  -->
     <include src="./partials/modal-film.html"></include>
+  </main>
 
-    <!-- Footer -->
-    <include src="./partials/footer.html"></include>
 
-    <script type="module" src="./library.js"></script>
-  </body>
+  <!-- Footer -->
+  <include src="./partials/footer.html"></include>
+
+  <script type="module" src="./library.js"></script>
+</body>
+
 </html>
