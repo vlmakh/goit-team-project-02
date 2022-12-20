@@ -13,7 +13,7 @@ import noposter from '../images/noposter.jpg';
 import { showHideLoader } from './loader';
 import { getArrayofMovies } from './api';
 import { createLibraryMarkup } from './create-library-markup';
-import 'basicLightbox/dist/basicLightbox.min.css';
+// import 'basicLightbox/dist/basicLightbox.min.css';
 import youtube from '../images/youtube.svg';
 
 let keyTrailer = '';
@@ -47,24 +47,22 @@ function refresh(data, id, keyTrailer = '') {
   }
   // createFilmCardMarkup(data);
 
-  const trailerRef = document.querySelector('[data-btn=watchTrailer]');
-  console.log(trailerRef);
-  if (!keyTrailer) {
-    // trailerRef.hidden = true;
-    // trailerRef.setAttribute('hidden', 'true');
-    trailerRef.classList.add('is-hidden');
-  }
+  // const trailerRef = document.querySelector('[data-btn=watchTrailer]');
+  // console.log(trailerRef);
+  // if (!keyTrailer) {
+  //   trailerRef.classList.add('is-hidden');
+  // }
 
-  trailerRef.onclick = () => {
-    basicLightbox
-      .create(
-        `<iframe width="640" height="360" 
-        src="https://www.youtube.com/embed/${keyTrailer}" 
-        title="" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-      )
-      .show();
-  };
+  // trailerRef.onclick = () => {
+  //   basicLightbox
+  //     .create(
+  //       `<iframe width="640" height="360"
+  //       src="https://www.youtube.com/embed/${keyTrailer}"
+  //       title="" frameborder="0"
+  //       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+  //     )
+  //     .show();
+  // };
 
   const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
   const addQueueRef = document.querySelector('[data-btn=addToQueue]');
@@ -187,12 +185,7 @@ function createFilmCardMarkup(data) {
       <p class="modal__descrpt">
        ${data.overview ?? '---'}
       </p>
-        <div class="modal__trailer">
-        <button type="button" class="modal__btn modal__btn-trailer" data-btn="watchTrailer">
-          <img class="modal__icon-youtube" src="${youtube}" alt="youtube" />
-          Watch Trailer
-        </button>
-      </div>
+       
       <ul class="modal__btn-list list">
         <li>
           <button type="button" class="modal__btn" data-btn="addToWatched">
@@ -222,3 +215,14 @@ function createFilmCardMarkup(data) {
 function getGenres(arrOfGenres) {
   return arrOfGenres.map(genr => genr.name).join(', ');
 }
+
+//  <div class="modal__trailer">
+//    <button
+//      type="button"
+//      class="modal__btn modal__btn-trailer"
+//      data-btn="watchTrailer"
+//    >
+//      <img class="modal__icon-youtube" src="${youtube}" alt="youtube" />
+//      Watch Trailer
+//    </button>
+//  </div>;
