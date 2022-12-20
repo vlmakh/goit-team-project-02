@@ -64,7 +64,7 @@ function refresh(data, id, keyTrailer = '') {
   const addQueueRef = document.querySelector('[data-btn=addToQueue]');
 
   if (watched.includes(id)) {
-    addWatchedRef.textContent = 'Is in watchers';
+    addWatchedRef.textContent = 'Is in watched';
     addWatchedRef.style.backgroundColor = '#ff6b01';
     addWatchedRef.style.color = '#ffffff';
   }
