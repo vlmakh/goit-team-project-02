@@ -207,7 +207,7 @@ function createFilmCardMarkup(data) {
           <img class="modal__icon-youtube" src="${youtube}" alt="youtube" />
           Watch Trailer
         </button>
-      </div>;
+      </div>
     </div>`;
 
   refs.modalRef.innerHTML = markup;
