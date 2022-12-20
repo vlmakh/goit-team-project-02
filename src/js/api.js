@@ -30,7 +30,7 @@ export async function getInfoMovie(movie_id) {
     .then(response => {
       return response.data;
     })
-    .catch(error => console.log(error));
+    .catch(error => {});
 }
 
 export async function getVideos(movie_id) {
@@ -40,7 +40,7 @@ export async function getVideos(movie_id) {
     .then(response => {
       return response.data.results;
     })
-    .catch(error => console.log(error));
+    .catch(error => {});
 }
 
 export async function getArrayofMovies(array) {
