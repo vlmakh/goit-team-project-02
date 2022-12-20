@@ -27,10 +27,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
+    min-height: 504px;
   }
 
   @media screen and (min-width: 1280px) {
     column-gap: 16px;
     row-gap: 32px;
+    min-height: 592px;
   }
 }
