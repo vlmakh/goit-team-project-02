@@ -8,7 +8,8 @@
   background-position: center;
   background-size: cover;
 
-  background-image: linear-gradient(
+  @media screen and (max-width: 320px)
+  {background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.56),
       rgba(0, 0, 0, 0.56)
@@ -24,8 +25,8 @@
       ),
       url(../images/header-lib/header-lib-bg-img@2x_s.jpg);
   }
-
-  @media screen and (min-width: 768px) {
+}
+  @media screen and (min-width: 321px) and (max-width: 768px) {
     padding-top: 40px;
     padding-bottom: 60px;
 
@@ -47,7 +48,7 @@
     }
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 769px) {
     background-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.56),

@@ -6,17 +6,38 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-color: #212121;
 
-  background-color: rgba(0, 0, 0, 0.56);
-  background-image: url('../images/header_main_images/header-bgc-320.svg');
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 320px) {
+    background-image: url('../images/header_main_images/header-bgc-320-1x.jpg');
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 2dppx),
+      (min-resolution: 192dpi) {
+      background-image: url('../images/header_main_images/header-bgc-320-2x.jpg');
+    }
+  }
+
+  @media screen and (min-width: 321px) and (max-width: 768px) {
     padding: 45px 0 45px 0;
     height: 216px;
-    background-image: url('../images/header_main_images/header-bgc-768.svg');
+
+    background-image: url('../images/header_main_images/header-bgc-768-1x.jpg');
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 2dppx),
+      (min-resolution: 192dpi) {
+      background-image: url('../images/header_main_images/header-bgc-768-2x.jpg');
+    }
   }
-  @media (min-width: 1280px) {
+
+  @media (min-width: 769px) {
     padding: 45px 0 44px 0;
-    background-image: url('../images/header_main_images/header-bgc-1280.svg');
+
+    background-image: url('../images/header_main_images/header-bgc-1280-1x.jpg');
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 2dppx),
+      (min-resolution: 192dpi) {
+      background-image: url('../images/header_main_images/header-bgc-1280-2x.jpg');
+    }
   }
 }
 
