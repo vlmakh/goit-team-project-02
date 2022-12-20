@@ -9,7 +9,7 @@ function loadIntoTeamModal(list) {
       return `
       <li class="member__card">
         <div class="member__thumb">        
-            <img class="member__image"
+            <img class="member__image" width='120' 
             src="${member.photo}"
             alt=${member.name}
             loading="lazy"
@@ -17,7 +17,9 @@ function loadIntoTeamModal(list) {
         </div>
         <div class="member__info">
           <p class="member__name">${member.name}</p>
-          <a class="member__link member__link-git" href="${member.github}">github</a>
+          <a class="member__link member__link-git" href="${
+            member.github
+          }">github</a>
           <a class="member__link" href="${member.linkedin}">linkedin</a>
           <p class="member__role">${member.role ?? ''}</p>
         </div>
