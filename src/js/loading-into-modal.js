@@ -12,7 +12,6 @@ import noposter from '../images/noposter.jpg';
 import { showHideLoader } from './loader';
 import { getArrayofMovies } from './api';
 import { createLibraryMarkup } from './create-library-markup';
-// import 'basicLightbox/dist/basicLightbox.min.css';
 import youtube from '../images/youtube.svg';
 
 let keyTrailer = '';
@@ -44,10 +43,8 @@ function refresh(data, id, keyTrailer = '') {
   if (!createFilmCardMarkup(data)) {
     return;
   }
-  // createFilmCardMarkup(data);
 
   const trailerRef = document.querySelector('[data-btn=watchTrailer]');
-  // console.log(trailerRef);
   if (!keyTrailer) {
     trailerRef.classList.add('is-hidden');
   }
