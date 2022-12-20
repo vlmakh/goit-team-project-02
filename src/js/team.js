@@ -44,7 +44,7 @@ export const teamList = [
     name: 'Denis Borysiuk',
     role: 'Developer',
     github: 'https://github.com/DenysBorysiuk',
-    linkedin: 'https://linkedin.com',
+    linkedin: 'https://www.linkedin.com/in/denys-borysiuk/',
     photo:
       'https://cdn.create.vista.com/api/media/small/7442170/stock-photo-cartoon-bee',
   },
@@ -76,7 +76,7 @@ export const teamList = [
     name: 'Artem Maslii',
     role: 'Developer',
     github: 'https://github.com/Tiomasik',
-    linkedin: 'https://linkedin.com',
+    linkedin: 'https://www.linkedin.com/in/artem-maslii-4ba12225b/',
     photo:
       'https://cdn.create.vista.com/api/media/medium/7276827/stock-photo-happy-bee?token=1',
   },

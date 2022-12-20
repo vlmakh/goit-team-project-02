@@ -1,6 +1,6 @@
 # Командний проект групи "InfinITy" - Filmoteka
 
-Free themoviedb.org API is used as backend.
+В якості бекенду використано API ресурс themoviedb.org
 
 Використані технології:
 
