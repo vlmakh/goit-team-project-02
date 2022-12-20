@@ -23,12 +23,14 @@ export function loadIntoModal(id) {
 
     getVideos(id)
       .then(movies => {
-        const objTrailer = movies.find(movie => movie.type === 'Trailer');
-        if (!movies || objTrailer.type !== 'Trailer') {
-          return;
-        }
+        if (movies) {
+          const objTrailer = movies.find(movie => movie.type === 'Trailer');
+          if (!movies || objTrailer.type !== 'Trailer') {
+            return;
+          }
 
-        keyTrailer = objTrailer.key;
+          keyTrailer = objTrailer.key;
+        }
 
         refresh(data, id, keyTrailer);
       })
@@ -43,22 +45,6 @@ function refresh(data, id, keyTrailer = '') {
   if (!createFilmCardMarkup(data)) {
     return;
   }
-
-  const trailerRef = document.querySelector('[data-btn=watchTrailer]');
-  if (!keyTrailer) {
-    trailerRef.classList.add('is-hidden');
-  }
-
-  trailerRef.onclick = () => {
-    basicLightbox
-      .create(
-        `<iframe width="640" height="360"
-        src="https://www.youtube.com/embed/${keyTrailer}"
-        title="" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-      )
-      .show();
-  };
 
   const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
   const addQueueRef = document.querySelector('[data-btn=addToQueue]');
@@ -115,6 +101,22 @@ function refresh(data, id, keyTrailer = '') {
     refs.modalRef.innerHTML = '';
     refresh(data, id, keyTrailer);
   });
+  const trailerRef = document.querySelector('[data-btn=watchTrailer]');
+  if (!keyTrailer) {
+    trailerRef.classList.add('is-hidden');
+    // trailerRef.setAttribute('hidden', 'true');
+  }
+
+  trailerRef.onclick = () => {
+    basicLightbox
+      .create(
+        `<iframe width="640" height="360"
+        src="https://www.youtube.com/embed/${keyTrailer}"
+        title="" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      )
+      .show();
+  };
 }
 
 function createFilmCardMarkup(data) {
