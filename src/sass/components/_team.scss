@@ -16,22 +16,24 @@
     margin-top: 8px;
     text-align: center;
         font-weight: 500;
-
 }
 
 .member__role {
     font-size: 12px;
         color: $color-accent;
+
 }
 
 .member__name {
     font-size: 14px;
+
         font-weight: 700;
 }
 .member__link-git {
    padding-right: 3px;
     border-right: 1px solid $color-accent;
 }
+
 .member__link {
     @extend .link;
     font-size: 12px;

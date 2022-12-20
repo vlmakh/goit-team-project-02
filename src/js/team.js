@@ -1,4 +1,5 @@
 export const teamList = [
+
  {
     name: 'Vlad Makhnenko',
     role: 'Team Lead',
