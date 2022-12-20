@@ -72,7 +72,7 @@ body.show-modal {
     padding-top: 40px;
     padding-right: 72px;
     width: 704px;
-    
+
     left: 50%;
     transform: translate(-50%) scale(0.8);
   }
@@ -260,6 +260,10 @@ body.show-modal {
 
   &__icon-youtube {
     width: 30px;
+  }
+
+  &__trailer {
+    padding-top: 16px;
   }
 }
 
