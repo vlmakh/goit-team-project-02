@@ -43,7 +43,6 @@ function onSearchByKeyword(e) {
           'Search result not successful. Enter the correct movie name';
         return;
       }
-      console.log(data);
       refs.gallery.innerHTML = createGalleryMarkup(data.results);
 
       const pagination = createPagination(data.total_results, data.total_pages);

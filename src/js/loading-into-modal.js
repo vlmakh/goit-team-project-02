@@ -1,4 +1,3 @@
-// import basicLightbox from 'basiclightbox';
 import * as basicLightbox from 'basiclightbox';
 import { getInfoMovie, getVideos } from './api';
 import refs from './refs';
