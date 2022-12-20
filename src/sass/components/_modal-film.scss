@@ -246,8 +246,22 @@ body.show-modal {
       height: 44px;
     }
   }
-}
 
+  &__btn-trailer {
+    // margin-left: 5px;
+    margin-bottom: 20px;
+    min-width: 150px;
+    gap: 5px;
+
+    @media screen and (min-width: 1280px) {
+      margin-left: 25px;
+    }
+  }
+
+  &__icon-youtube {
+    width: 30px;
+  }
+}
 
 body.show-modal .modal {
   transform: translateX(-50%) scale(1);
@@ -266,9 +280,9 @@ body.show-modal .modal {
     opacity 500ms $timing-function $duration,
     visibility 500ms $timing-function $duration;
 
-.modal__empty {
-  margin: 50px auto;
-  font-size: 18px;
-  font-weight: 500;
-}
+  .modal__empty {
+    margin: 50px auto;
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
