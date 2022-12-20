@@ -20,16 +20,15 @@ export function loadIntoModal(id) {
   showHideLoader(refs.loaderModal);
   const film = getInfoMovie(id).then(data => {
     showHideLoader(refs.loaderModal);
-
     getVideos(id)
       .then(movies => {
-        if (movies) {
+        if (movies && movies.length) {
           const objTrailer = movies.find(movie => movie.type === 'Trailer');
-          if (!movies || objTrailer.type !== 'Trailer') {
+
+          if (objTrailer && objTrailer.type !== 'Trailer') {
             return;
           }
-
-          keyTrailer = objTrailer.key;
+          keyTrailer = objTrailer ? objTrailer.key : '';
         }
 
         refresh(data, id, keyTrailer);
