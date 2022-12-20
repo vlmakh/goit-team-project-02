@@ -204,7 +204,7 @@ function createFilmCardMarkup(data) {
           <img class="modal__icon-youtube" src="${youtube}" alt="youtube" />
           Watch Trailer
         </button>
-      </div>;
+      </div>
     </div>`;
 
   refs.modalRef.innerHTML = markup;
@@ -222,14 +222,3 @@ function createFilmCardMarkup(data) {
 function getGenres(arrOfGenres) {
   return arrOfGenres.map(genr => genr.name).join(', ');
 }
-
-//  <div class="modal__trailer">
-//    <button
-//      type="button"
-//      class="modal__btn modal__btn-trailer"
-//      data-btn="watchTrailer"
-//    >
-//      <img class="modal__icon-youtube" src="${youtube}" alt="youtube" />
-//      Watch Trailer
-//    </button>
-//  </div>;
