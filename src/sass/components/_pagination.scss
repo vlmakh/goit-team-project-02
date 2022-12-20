@@ -1,4 +1,5 @@
 #pagination {
+  flex-shrink: 0;
   margin-bottom: 40px;
   margin-top: 0;
   @media (min-width: 768px) {
@@ -11,6 +12,9 @@
     color: #000;
     &:hover {
       background-color: $color-bcg;
+    }
+    @media (min-width: 768px) {
+      font-size: 14px;
     }
   }
 

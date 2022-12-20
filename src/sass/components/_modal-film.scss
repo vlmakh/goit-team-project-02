@@ -48,16 +48,14 @@ body.show-modal {
 
 .modal {
   position: absolute;
-  top: 20px;
-  left: 50%;
 
-  transform: translateX(-50%) scale(0.8);
   opacity: 0;
   visibility: hidden;
 
-  padding: 20px;
   padding-top: 48px;
+  padding-right: 20px;
   padding-bottom: 40px;
+  padding-left: 20px;
   margin-left: auto;
   margin-right: auto;
 
@@ -65,23 +63,28 @@ body.show-modal {
   text-align: left;
 
   min-height: 200px;
-  min-width: 280px;
+  width: 280px;
+
+  @media screen and (max-width: 767px) {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+  }
 
   @media screen and (min-width: 768px) {
-    padding: 36px;
     padding-top: 40px;
     padding-right: 72px;
+    padding-bottom: 40px;
+    padding-left: 36px;
     width: 704px;
 
+    top: 50%;
     left: 50%;
-    transform: translate(-50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.8);
   }
 
   @media screen and (min-width: 1280px) {
     min-width: 806px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -248,7 +251,6 @@ body.show-modal {
   }
 
   &__btn-trailer {
-    // margin-left: 5px;
     margin-bottom: 20px;
     min-width: 150px;
     gap: 5px;
@@ -268,12 +270,15 @@ body.show-modal {
 }
 
 body.show-modal .modal {
-  transform: translateX(-50%) scale(1);
   opacity: 1;
   visibility: visible;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     transform: translate(-50%) scale(1);
+  }
+
+  @media screen and (min-width: 768px) {
+    transform: translate(-50%, -50%) scale(1);
   }
 
   @media screen and (min-width: 1280px) {

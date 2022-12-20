@@ -12,7 +12,6 @@ import noposter from '../images/noposter.jpg';
 import { showHideLoader } from './loader';
 import { getArrayofMovies } from './api';
 import { createLibraryMarkup } from './create-library-markup';
-// import 'basicLightbox/dist/basicLightbox.min.css';
 import youtube from '../images/youtube.svg';
 
 let keyTrailer = '';
@@ -21,20 +20,20 @@ export function loadIntoModal(id) {
   showHideLoader(refs.loaderModal);
   const film = getInfoMovie(id).then(data => {
     showHideLoader(refs.loaderModal);
-
     getVideos(id)
       .then(movies => {
-        const objTrailer = movies.find(movie => movie.type === 'Trailer');
-        if (!movies || objTrailer.type !== 'Trailer') {
-          return;
-        }
+        if (movies && movies.length) {
+          const objTrailer = movies.find(movie => movie.type === 'Trailer');
 
-        keyTrailer = objTrailer.key;
+          if (objTrailer && objTrailer.type !== 'Trailer') {
+            return;
+          }
+          keyTrailer = objTrailer ? objTrailer.key : '';
+        }
 
         refresh(data, id, keyTrailer);
       })
       .catch(error => {
-        console.log(error);
         refresh(data, id);
       });
   });
@@ -44,30 +43,12 @@ function refresh(data, id, keyTrailer = '') {
   if (!createFilmCardMarkup(data)) {
     return;
   }
-  // createFilmCardMarkup(data);
-
-  const trailerRef = document.querySelector('[data-btn=watchTrailer]');
-  // console.log(trailerRef);
-  if (!keyTrailer) {
-    trailerRef.classList.add('is-hidden');
-  }
-
-  trailerRef.onclick = () => {
-    basicLightbox
-      .create(
-        `<iframe width="640" height="360"
-        src="https://www.youtube.com/embed/${keyTrailer}"
-        title="" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-      )
-      .show();
-  };
 
   const addWatchedRef = document.querySelector('[data-btn=addToWatched]');
   const addQueueRef = document.querySelector('[data-btn=addToQueue]');
 
   if (watched.includes(id)) {
-    addWatchedRef.textContent = 'Is in watchers';
+    addWatchedRef.textContent = 'Is in watched';
     addWatchedRef.style.backgroundColor = '#ff6b01';
     addWatchedRef.style.color = '#ffffff';
   }
@@ -118,6 +99,22 @@ function refresh(data, id, keyTrailer = '') {
     refs.modalRef.innerHTML = '';
     refresh(data, id, keyTrailer);
   });
+  const trailerRef = document.querySelector('[data-btn=watchTrailer]');
+  if (!keyTrailer) {
+    trailerRef.classList.add('is-hidden');
+    // trailerRef.setAttribute('hidden', 'true');
+  }
+
+  trailerRef.onclick = () => {
+    basicLightbox
+      .create(
+        `<iframe width="640" height="360"
+        src="https://www.youtube.com/embed/${keyTrailer}"
+        title="" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      )
+      .show();
+  };
 }
 
 function createFilmCardMarkup(data) {
@@ -225,14 +222,3 @@ function createFilmCardMarkup(data) {
 function getGenres(arrOfGenres) {
   return arrOfGenres.map(genr => genr.name).join(', ');
 }
-
-//  <div class="modal__trailer">
-//    <button
-//      type="button"
-//      class="modal__btn modal__btn-trailer"
-//      data-btn="watchTrailer"
-//    >
-//      <img class="modal__icon-youtube" src="${youtube}" alt="youtube" />
-//      Watch Trailer
-//    </button>
-//  </div>;
