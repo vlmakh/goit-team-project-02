@@ -35,7 +35,6 @@ export function loadIntoModal(id) {
         refresh(data, id, keyTrailer);
       })
       .catch(error => {
-        console.log(error);
         refresh(data, id);
       });
   });
